@@ -30,6 +30,7 @@ function GenderChart(props) {
   }
 
   props.data.forEach((patient) => {
+    //console.log(props.data.patient);
     if (patient.gender === 'M') {
       male++;
     } else if (patient.gender === 'F') {

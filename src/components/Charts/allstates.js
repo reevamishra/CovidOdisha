@@ -89,20 +89,19 @@ function AllStatesChart(props) {
       return;
     }
 
-    if (index >= 10) {
+    if (index >= 1) {
       return;
     }
 
     datasets.push({
       borderWidth: 1.5,
-      data: statesData.get(key),
+      data: statesData.get("or"),
       borderCapStyle: 'round',
       pointBackgroundColor: colors[index],
-      label: getStateName(key),
+      label: getStateName("or"),
       borderColor: colors[index],
       pointHoverRadius: 0.5,
     });
-
     index++;
   });
 
