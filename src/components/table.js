@@ -16,7 +16,7 @@ function Table(props) {
       ? localStorage.getItem('state.isAscending') === 'true'
       : false,
   });
-
+  
   useEffect(() => {
     if (props.summary === true) {
       setStates(props.states.slice(0, 9));
@@ -45,6 +45,7 @@ function Table(props) {
 
   useEffect(() => {
     setDistricts(props.stateDistrictWiseData);
+    console.log(props.stateDistrictWiseData);
   }, [props.stateDistrictWiseData]);
 
   const doSort = (e, props) => {
@@ -98,7 +99,8 @@ function Table(props) {
       ...revealedStates,
       [state]: !revealedStates[state],
     });
-    console.log(state);
+    console.log(revealedStates);
+    console.log(revealedStates[state]);
   };
 
   doSort();
@@ -256,7 +258,7 @@ function Table(props) {
                   index={index}
                   state={state}
                   total={false}
-                  reveal={revealedStates[state.state]}
+                  reveal={true}
                   districts={
                     state.state in districts
                       ? districts[state.state].districtData
