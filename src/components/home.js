@@ -95,46 +95,7 @@ function Home(props) {
   return (
     <React.Fragment>
       <div className="Home">
-        <div className="home-left">
-          <div className="header fadeInUp" style={{animationDelay: '1s'}}>
-            <div className="header-mid">
-              <div className="titles">
-                <h1>Odisha COVID-19 Tracker</h1>
-                {/* <h6 style={{fontWeight: 600}}>A Crowdsourced Initiative</h6> */}
-              </div>
-              <div className="last-update">
-                <h6>Last Updated</h6>
-                <h6 style={{color: '#28a745', fontWeight: 600}}>
-                  {isNaN(Date.parse(formatDate(lastUpdated)))
-                    ? ''
-                    : formatDistance(
-                        new Date(formatDate(lastUpdated)),
-                        new Date()
-                      ) + ' Ago'}
-                </h6>
-                <h6 style={{color: '#28a745', fontWeight: 600}}>
-                  {isNaN(Date.parse(formatDate(lastUpdated)))
-                    ? ''
-                    : formatDateAbsolute(lastUpdated)}
-                </h6>
-              </div>
-            </div>
-          </div>
-
-          {states.length > 1 && <Level data={states} />}
-          {fetched && <Minigraph timeseries={timeseries['OR']} />}
-          {fetched && (
-            <Table
-              forwardRef={refs[0]}
-              states={states}
-              summary={false}
-              stateDistrictWiseData={stateDistrictWiseData}
-              onHighlightState={onHighlightState}
-              onHighlightDistrict={onHighlightDistrict}
-            />
-          )}
-        </div>
-
+        
         <div className="home-right">
           {fetched && (
             <React.Fragment>
@@ -234,6 +195,46 @@ function Home(props) {
             </React.Fragment>
           )}
         </div>
+        
+        <div className="home-left">
+          <div className="header fadeInUp" style={{animationDelay: '1s'}}>
+            <div className="header-mid">
+              <div className="titles">
+                <h1>Odisha COVID-19 Tracker</h1>
+                {/* <h6 style={{fontWeight: 600}}>A Crowdsourced Initiative</h6> */}
+              </div>
+              <div className="last-update">
+                <h6>Last Updated</h6>
+                <h6 style={{color: '#28a745', fontWeight: 600}}>
+                  {isNaN(Date.parse(formatDate(lastUpdated)))
+                    ? ''
+                    : formatDistance(
+                        new Date(formatDate(lastUpdated)),
+                        new Date()
+                      ) + ' Ago'}
+                </h6>
+                <h6 style={{color: '#28a745', fontWeight: 600}}>
+                  {isNaN(Date.parse(formatDate(lastUpdated)))
+                    ? ''
+                    : formatDateAbsolute(lastUpdated)}
+                </h6>
+              </div>
+            </div>
+          </div>
+
+          {states.length > 1 && <Level data={states} />}
+          {fetched && <Minigraph timeseries={timeseries['OR']} />}
+          {fetched && (
+            <Table
+              forwardRef={refs[0]}
+              states={states}
+              summary={false}
+              stateDistrictWiseData={stateDistrictWiseData}
+              onHighlightState={onHighlightState}
+              onHighlightDistrict={onHighlightDistrict}
+            />
+          )}
+        </div>
 
         {/* <div className="floating-buttons">
           <button
@@ -290,11 +291,11 @@ function Home(props) {
             </button>
           </div>
         )}
+            </div>
+            <div className="home-right"></div>
+            */}
       </div>
-      <div className="home-right"></div>
-    */}
-      </div>
-{/* 
+          {/* 
       <div className="Home">
         <div className="home-right">
           <div
