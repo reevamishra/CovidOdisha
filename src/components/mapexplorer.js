@@ -262,12 +262,6 @@ function MapExplorer({
   const [currentHoveredRegion, setCurrentHoveredRegion] = useState(
     getRegionFromState(states[0])
   );
-  
-  console.log(getRegionFromState(states[0]));
-
-  console.log(getRegionFromState(
-    states.find((state) => state.state === "Odisha")
-  ));
   const [testObj, setTestObj] = useState({});
   const [currentMap, setCurrentMap] = useState(mapMeta.Odisha);
   const [statistic, currentMapData] = useMemo(() => {
@@ -406,7 +400,7 @@ function MapExplorer({
       ref={forwardRef}
     >
       <div className="header">
-        <h1>{currentMap.name}</h1>
+        <h1>{currentMap.name} PRESENT STATUS</h1>
         <h6>
           {window.innerWidth <= 769 ? 'Tap' : 'Hover'} over a{' '}
           {currentMap.mapType === MAP_TYPES.STATE ? 'district' : ''}{' '}
