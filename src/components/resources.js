@@ -810,7 +810,7 @@ function Resources(props) {
                 marginBottom: '0.6rem',
               }}
             >
-              <a
+              {/* <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSfquevp7_rdgdEoDgTdimWwTXO3B9TjFEAm3DbrMDXxCiuwuA/viewform"
                 className="button add-entry is-purple"
                 target="_blank"
@@ -827,7 +827,7 @@ function Resources(props) {
                 style={{margin: '0rem 0.2rem', padding: '0.1rem 0.5rem'}}
               >
                 <span>Feedback</span>
-              </a>
+              </a> */}
               {/* <button
                 onClick={openSharingTray}
                 className="button add-entry is-purple"
