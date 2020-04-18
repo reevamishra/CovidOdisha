@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react';
 import axios from 'axios';
-import {formatDistance, format} from 'date-fns';
-import * as Icon from 'react-feather';
+//import {formatDistance, format} from 'date-fns';
+import {formatDistance} from 'date-fns';
+//import * as Icon from 'react-feather';
 
 import {
   formatDate,
@@ -9,7 +10,7 @@ import {
   preprocessTimeseries,
   parseStateTimeseries,
 } from '../utils/common-functions';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 
 import Table from './table';
 import Level from './level';
@@ -25,11 +26,13 @@ function Home(props) {
   const [graphOption, setGraphOption] = useState(1);
   const [lastUpdated, setLastUpdated] = useState('');
   const [timeseries, setTimeseries] = useState({});
-  const [activeStateCode, setActiveStateCode] = useState('TT'); // TT -> India
-  const [activityLog, setActivityLog] = useState([]);
+  const [activeStateCode, setActiveStateCode] = useState('OR'); // TT -> India
+  //const [activityLog, setActivityLog] = useState([]);
+  const [setActivityLog] = useState([]);
   const [timeseriesMode, setTimeseriesMode] = useState(true);
   const [timeseriesLogMode, setTimeseriesLogMode] = useState(false);
   const [regionHighlighted, setRegionHighlighted] = useState(undefined);
+
 
   useEffect(() => {
     if (fetched === false) {
@@ -56,17 +59,20 @@ function Home(props) {
       const ts = parseStateTimeseries(statesDailyResponse);
       ts['TT'] = preprocessTimeseries(response.data.cases_time_series); // TT -> India
       setTimeseries(ts);
-      setLastUpdated(response.data.statewise[0].lastupdatedtime);
+      //console.log(response.data.statewise.filter(x => x.state === "Odisha")[0]["lastupdatedtime"]);
+      setLastUpdated(response.data.statewise.filter(x => x.state === "Odisha")[0]["lastupdatedtime"]);
       setStateTestData(stateTestResponse.data.states_tested_data.reverse());
       setStateDistrictWiseData(stateDistrictWiseResponse.data);
       setActivityLog(updateLogResponse.data);
       setFetched(true);
+//      console.log(stateDistrictWiseResponse.data.Odisha.districtData);
     } catch (err) {
       console.log(err);
     }
   };
 
   const onHighlightState = (state, index) => {
+    console.log(state,index);
     if (!state && !index) return setRegionHighlighted(null);
     setRegionHighlighted({state, index});
   };
@@ -87,6 +93,7 @@ function Home(props) {
   //   })
   // );
 
+  //console.log(timeseries["OR"]);
   return (
     <React.Fragment>
       <div className="Home">
@@ -94,8 +101,8 @@ function Home(props) {
           <div className="header fadeInUp" style={{animationDelay: '1s'}}>
             <div className="header-mid">
               <div className="titles">
-                <h1>India COVID-19 Tracker</h1>
-                <h6 style={{fontWeight: 600}}>A Crowdsourced Initiative</h6>
+                <h1>Odisha COVID-19 Tracker</h1>
+                {/* <h6 style={{fontWeight: 600}}>A Crowdsourced Initiative</h6> */}
               </div>
               <div className="last-update">
                 <h6>Last Updated</h6>
@@ -117,7 +124,7 @@ function Home(props) {
           </div>
 
           {states.length > 1 && <Level data={states} />}
-          {fetched && <Minigraph timeseries={timeseries['TT']} />}
+          {fetched && <Minigraph timeseries={timeseries['OR']} />}
           {fetched && (
             <Table
               forwardRef={refs[0]}
@@ -200,11 +207,11 @@ function Home(props) {
                 </div>
 
                 <div className="trends-state-name">
-                  <select
+                  {/* <select
                     onChange={({target}) => {
                       onHighlightState(JSON.parse(target.value));
                     }}
-                  >
+                  > */}
                     {states.map((s) => {
                       return (
                         <option
@@ -212,11 +219,11 @@ function Home(props) {
                           value={JSON.stringify(s)}
                           selected={s.statecode === activeStateCode}
                         >
-                          {s.state === 'Total' ? 'All States' : s.state}
+                          {/* {s.state === 'Total' ? 'All States' : s.state} */}
                         </option>
                       );
                     })}
-                  </select>
+                  {/* </select> */}
                 </div>
               </div>
 
@@ -289,9 +296,9 @@ function Home(props) {
       <div className="home-right"></div>
     */}
       </div>
-
+{/* 
       <div className="Home">
-        <div className="home-left">
+        <div className="home-right">
           <div
             className="updates-header fadeInUp"
             style={{animationDelay: '1.5s'}}
@@ -329,10 +336,10 @@ function Home(props) {
               </Link>
             </button>
           </div>
-        </div>
+        </div> */}
 
-        <div className="home-right"></div>
-      </div>
+        {/* <div className="home-left"></div> */}
+      {/* </div> */}
     </React.Fragment>
   );
 }
