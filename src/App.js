@@ -5,17 +5,17 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import * as Icon from 'react-feather';
+// import * as Icon from 'react-feather';
 
 import './App.scss';
 
 import Home from './components/home';
 import Navbar from './components/navbar';
-import Links from './components/links';
-import FAQ from './components/faq';
+// import Links from './components/links';
+// import FAQ from './components/faq';
 import Banner from './components/banner';
-import PatientDB from './components/patientdb';
-import DeepDive from './components/deepdive';
+// import PatientDB from './components/patientdb';
+// import DeepDive from './components/deepdive';
 import Resources from './components/resources';
 /* import PatientDB from './components/patientdb';*/
 
@@ -29,30 +29,30 @@ function App() {
       displayName: 'Home',
       animationDelayForNavbar: 0.2,
     },
-    {
-      pageLink: '/demographics',
-      view: PatientDB,
-      displayName: 'Demographics',
-      animationDelayForNavbar: 0.3,
-    },
-    {
-      pageLink: '/deepdive',
-      view: DeepDive,
-      displayName: 'Deep Dive',
-      animationDelayForNavbar: 0.4,
-    },
-    {
-      pageLink: '/links',
-      view: Links,
-      displayName: 'Helpful Links',
-      animationDelayForNavbar: 0.4,
-    },
-    {
-      pageLink: '/faq',
-      view: FAQ,
-      displayName: 'About',
-      animationDelayForNavbar: 0.5,
-    },
+    // {
+    //   pageLink: '/demographics',
+    //   view: PatientDB,
+    //   displayName: 'Demographics',
+    //   animationDelayForNavbar: 0.3,
+    // },
+    // {
+    //   pageLink: '/deepdive',
+    //   view: DeepDive,
+    //   displayName: 'Clusters',
+    //   animationDelayForNavbar: 0.4,
+    // },
+    // {
+    //   pageLink: '/links',
+    //   view: Links,
+    //   displayName: 'Helpful Links',
+    //   animationDelayForNavbar: 0.4,
+    // },
+    // {
+    //   pageLink: '/faq',
+    //   view: FAQ,
+    //   displayName: 'About',
+    //   animationDelayForNavbar: 0.5,
+    // },
     {
       pageLink: '/essentials',
       view: Resources,
@@ -95,7 +95,7 @@ function App() {
         />*/}
 
         <h5>We stand with everyone fighting on the frontlines</h5>
-        <div className="link">
+        {/* <div className="link">
           <a
             href="https://github.com/covid19india"
             target="_blank"
@@ -103,8 +103,8 @@ function App() {
           >
             covid19india
           </a>
-        </div>
-        <a
+        </div> */}
+        {/* <a
           href="https://github.com/covid19india/covid19india-react"
           className="button github"
           target="_blank"
@@ -112,8 +112,8 @@ function App() {
         >
           <Icon.GitHub />
           <span>Open Sourced on GitHub</span>
-        </a>
-        <a
+        </a> */}
+        {/* <a
           className="button excel"
           href="https://bit.ly/patientdb"
           target="_blank"
@@ -121,8 +121,8 @@ function App() {
         >
           <Icon.Database />
           <span>Crowdsourced Patient Database&nbsp;</span>
-        </a>
-        <a
+        </a> */}
+        {/* <a
           href="https://twitter.com/covid19indiaorg"
           target="_blank"
           rel="noopener noreferrer"
@@ -131,8 +131,8 @@ function App() {
         >
           <Icon.Twitter />
           <span>View updates on Twitter</span>
-        </a>
-        <a
+        </a> */}
+        {/* <a
           href="https://bit.ly/covid19crowd"
           className="button telegram"
           target="_blank"
@@ -140,7 +140,7 @@ function App() {
         >
           <Icon.MessageCircle />
           <span>Join Telegram to Collaborate!</span>
-        </a>
+        </a> */}
       </footer>
     </div>
   );
