@@ -27,6 +27,8 @@ function AgeChart(props) {
     return <div></div>;
   }
 
+  console.log(props);
+
   props.data.forEach((patient) => {
     if (patient.agebracket) {
       const age = parseInt(patient.agebracket);
