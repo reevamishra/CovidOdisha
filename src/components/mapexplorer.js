@@ -1,9 +1,8 @@
 import React, {useState, useEffect, useMemo, useCallback} from 'react';
 import ChoroplethMap from './choropleth';
 import {MAP_TYPES, MAPS_DIR} from '../constants';
-//import {formatDate, formatDateAbsolute} from '../utils/common-functions';
-//import {formatDistance, format, parse} from 'date-fns';
-import {format, parse} from 'date-fns';
+import {formatDate, formatDateAbsolute} from '../utils/common-functions';
+import {formatDistance, format, parse} from 'date-fns';
 import {formatNumber} from '../utils/common-functions';
 import * as Icon from 'react-feather';
 

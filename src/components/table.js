@@ -7,8 +7,7 @@ function Table(props) {
   const [states, setStates] = useState(props.states);
   const [revealedStates, setRevealedStates] = useState({});
   const [districts, setDistricts] = useState({});
-  //const [count, setCount] = useState();
-  const [setCount] = useState();
+  const [count, setCount] = useState();
   const [sortData, setSortData] = useState({
     sortColumn: localStorage.getItem('state.sortColumn')
       ? localStorage.getItem('state.sortColumn')

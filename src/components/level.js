@@ -7,8 +7,7 @@ function Level(props) {
   const [active, setActive] = useState(0);
   const [recoveries, setRecoveries] = useState(0);
   const [deaths, setDeaths] = useState(0);
-  //const [deltas, setDeltas] = useState(0);
-  const [setDeltas] = useState(0);
+  const [deltas, setDeltas] = useState(0);
 
   useEffect(() => {
     setData(props.data);

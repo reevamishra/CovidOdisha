@@ -1,8 +1,7 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react';
 import axios from 'axios';
-//import {formatDistance, format} from 'date-fns';
-import {formatDistance} from 'date-fns';
-//import * as Icon from 'react-feather';
+import {formatDistance, format} from 'date-fns';
+import * as Icon from 'react-feather';
 
 import {
   formatDate,
@@ -10,7 +9,7 @@ import {
   preprocessTimeseries,
   parseStateTimeseries,
 } from '../utils/common-functions';
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import Table from './table';
 import Level from './level';
@@ -27,8 +26,7 @@ function Home(props) {
   const [lastUpdated, setLastUpdated] = useState('');
   const [timeseries, setTimeseries] = useState({});
   const [activeStateCode, setActiveStateCode] = useState('OR'); // TT -> India
-  //const [activityLog, setActivityLog] = useState([]);
-  const [setActivityLog] = useState([]);
+  const [activityLog, setActivityLog] = useState([]);
   const [timeseriesMode, setTimeseriesMode] = useState(true);
   const [timeseriesLogMode, setTimeseriesLogMode] = useState(false);
   const [regionHighlighted, setRegionHighlighted] = useState(undefined);

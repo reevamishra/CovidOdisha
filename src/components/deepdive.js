@@ -2,15 +2,14 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import GenderChart from './Charts/genderchart';
 import AgeChart from './Charts/agechart';
-// import NationalityChart from './Charts/nationalitychart';
+import NationalityChart from './Charts/nationalitychart';
 import AllStatesChart from './Charts/allstates';
-// import TotalConfirmedChart from './Charts/totalconfirmedchart';
-// import DailyConfirmedChart from './Charts/dailyconfirmedchart';
+import TotalConfirmedChart from './Charts/totalconfirmedchart';
+import DailyConfirmedChart from './Charts/dailyconfirmedchart';
 
 function DeepDive(props) {
   const [fetched, setFetched] = useState(false);
-  //const [timeseries, setTimeseries] = useState([]);
-  const [setTimeseries] = useState([]);
+  const [timeseries, setTimeseries] = useState([]);
   const [rawData, setRawData] = useState([]);
   const [statesTimeSeries, setStatesTimeSeries] = useState([]);
 

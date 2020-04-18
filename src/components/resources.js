@@ -7,8 +7,8 @@ import Select from '@material-ui/core/Select';
 import {makeStyles} from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined';
-//import Fab from '@material-ui/core/Fab';
-//import NavigationOutlinedIcon from '@material-ui/icons/NavigationOutlined';
+import Fab from '@material-ui/core/Fab';
+import NavigationOutlinedIcon from '@material-ui/icons/NavigationOutlined';
 
 export const useFormControlStyles = makeStyles((isDesktop) => {
   if (isDesktop === true)
@@ -134,10 +134,10 @@ function Resources(props) {
 
   const isDisclaimerOpen = Boolean(anchorEl);
   const id = isDisclaimerOpen ? 'simple-popover' : undefined;
-  // function topFunction() {
-  //   document.body.scrollTop = 0; // For Safari
-  //   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  // }
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
 
   const memocols = React.useMemo(
     () => [
@@ -412,22 +412,22 @@ function Resources(props) {
     );
   };
 
-  // const openSharingTray = function () {
-  //   const message =
-  //     'Discover nearest coronavirus support and essential service providers such as testing lab centres, accommodation shelters and vegetable vendors at ';
-  //   if (navigator.share !== undefined) {
-  //     navigator
-  //       .share({
-  //         title: document.title,
-  //         text: message,
-  //         url: 'https://www.covid19india.org/essentials',
-  //       })
-  //       .then()
-  //       .catch((error) => console.log(error));
-  //   } else {
-  //     openSharingLink(message);
-  //   }
-  // };
+  const openSharingTray = function () {
+    const message =
+      'Discover nearest coronavirus support and essential service providers such as testing lab centres, accommodation shelters and vegetable vendors at ';
+    if (navigator.share !== undefined) {
+      navigator
+        .share({
+          title: document.title,
+          text: message,
+          url: 'https://www.covid19india.org/essentials',
+        })
+        .then()
+        .catch((error) => console.log(error));
+    } else {
+      openSharingLink(message);
+    }
+  };
   return (
     <div className="Resources">
       <div className="filtersection">
