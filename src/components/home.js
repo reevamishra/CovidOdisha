@@ -110,7 +110,7 @@ function Home(props) {
 
               <div
                 className="timeseries-header fadeInUp"
-                style={{animationDelay: '2.5s'}}
+                style={{animationDelay: '.5s'}}
                 ref={refs[2]}
               >
                 <h1>Spread Trends</h1>
