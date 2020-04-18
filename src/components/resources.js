@@ -320,7 +320,7 @@ function Resources(props) {
           Object.values(state).forEach((citydata) => {
             Object.values(citydata).forEach((categorydata) => {
               categorydata.forEach((x) => {
-                if (x.category === category) a.push(x);
+                if (x.category === category && x.state === "Odisha") a.push(x);
               });
             });
           });
