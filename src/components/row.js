@@ -20,7 +20,8 @@ function Row(props) {
       ? localStorage.getItem('district.isAscending') === 'true'
       : false,
   });
-
+  //console.log(props.total);
+  //const count = Object.keys(sortedDistricts).filter((district) => district.toLowerCase() !== 'unknown').length;
   useEffect(() => {
     setState(props.state);
   }, [props.state]);
@@ -99,14 +100,14 @@ function Row(props) {
           <div className="table__title-wrapper">
             <span
               className={`dropdown ${
-                props.reveal ? 'rotateRightDown' : 'rotateDownRight'
+                props.reveal ? '' : ''
               }`}
               style={{display: !props.total ? '' : 'none'}}
               onClick={() => {
                 handleReveal();
               }}
             >
-              <Icon.ChevronDown />
+              {/* <Icon.ChevronDown /> */}
             </span>
             {state.state}
             {state.state === 'West Bengal' && (
