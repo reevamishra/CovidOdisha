@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react';
 import axios from 'axios';
 import {formatDistance, format} from 'date-fns';
-// import * as Icon from 'react-feather';
+import * as Icon from 'react-feather';
 
 import {
   formatDate, 
