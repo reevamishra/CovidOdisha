@@ -4,7 +4,7 @@ import {formatDistance, format} from 'date-fns';
 import * as Icon from 'react-feather';
 
 import {
-  formatDate,
+  formatDate, 
   formatDateAbsolute,
   preprocessTimeseries,
   parseStateTimeseries,
