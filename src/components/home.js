@@ -96,7 +96,7 @@ function Home(props) {
     <React.Fragment>
       <div className="Home">
         
-        <div className="home-right">
+        <div className="home-right" style={{animationDelay: '.1s'}}>
           {fetched && (
             <React.Fragment>
               <MapExplorer
@@ -110,7 +110,7 @@ function Home(props) {
 
               <div
                 className="timeseries-header fadeInUp"
-                style={{animationDelay: '.5s'}}
+                // style={{animationDelay: '.5s'}}
                 ref={refs[2]}
               >
                 <h1>Spread Trends</h1>
@@ -196,8 +196,8 @@ function Home(props) {
           )}
         </div>
         
-        <div className="home-left">
-          <div className="header fadeInUp" style={{animationDelay: '1s'}}>
+        <div className="home-left" style={{animationDelay: '.2s'}}>
+          <div className="header fadeInUp">
             <div className="header-mid">
               <div className="titles">
                 <h1>Odisha COVID-19 Tracker</h1>
