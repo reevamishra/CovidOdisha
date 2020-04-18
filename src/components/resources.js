@@ -7,8 +7,8 @@ import Select from '@material-ui/core/Select';
 import {makeStyles} from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined';
-import Fab from '@material-ui/core/Fab';
-import NavigationOutlinedIcon from '@material-ui/icons/NavigationOutlined';
+//import Fab from '@material-ui/core/Fab';
+//import NavigationOutlinedIcon from '@material-ui/icons/NavigationOutlined';
 
 export const useFormControlStyles = makeStyles((isDesktop) => {
   if (isDesktop === true)
@@ -134,10 +134,10 @@ function Resources(props) {
 
   const isDisclaimerOpen = Boolean(anchorEl);
   const id = isDisclaimerOpen ? 'simple-popover' : undefined;
-  function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  }
+  // function topFunction() {
+  //   document.body.scrollTop = 0; // For Safari
+  //   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  // }
 
   const memocols = React.useMemo(
     () => [
@@ -173,8 +173,8 @@ function Resources(props) {
 
   const getCityOptions = function () {
     if (indianstate) {
-      if (indianstate === 'all') return [];
-      else {
+      //if (indianstate === 'all') return [];
+      if (indianstate === 'Odisha'){
         return Object.keys(resourcedict[indianstate])
           .sort()
           .map((x) => (
@@ -199,6 +199,7 @@ function Resources(props) {
     // let defaultOption = ['Please select']
     return Object.keys(resourcedict)
       .sort()
+      .filter((y) => y==="Odisha")
       .map((x) => (
         <option
           key={x.id}
@@ -294,7 +295,7 @@ function Resources(props) {
           Object.values(resourcedict).forEach((state) => {
             Object.values(state).forEach((citydata) => {
               Object.values(citydata).forEach((category) => {
-                category.forEach((x) => a.push(x));
+                category.forEach((x) => {if (x.state === "Odisha") a.push(x)});
               });
             });
           });
@@ -411,22 +412,22 @@ function Resources(props) {
     );
   };
 
-  const openSharingTray = function () {
-    const message =
-      'Discover nearest coronavirus support and essential service providers such as testing lab centres, accommodation shelters and vegetable vendors at ';
-    if (navigator.share !== undefined) {
-      navigator
-        .share({
-          title: document.title,
-          text: message,
-          url: 'https://www.covid19india.org/essentials',
-        })
-        .then()
-        .catch((error) => console.log(error));
-    } else {
-      openSharingLink(message);
-    }
-  };
+  // const openSharingTray = function () {
+  //   const message =
+  //     'Discover nearest coronavirus support and essential service providers such as testing lab centres, accommodation shelters and vegetable vendors at ';
+  //   if (navigator.share !== undefined) {
+  //     navigator
+  //       .share({
+  //         title: document.title,
+  //         text: message,
+  //         url: 'https://www.covid19india.org/essentials',
+  //       })
+  //       .then()
+  //       .catch((error) => console.log(error));
+  //   } else {
+  //     openSharingLink(message);
+  //   }
+  // };
   return (
     <div className="Resources">
       <div className="filtersection">
@@ -623,7 +624,7 @@ function Resources(props) {
                 >
                   Search
                 </button>
-                <button
+                {/* <button
                   onClick={openSharingTray}
                   className="button add-entry is-purple"
                   style={{
@@ -634,7 +635,7 @@ function Resources(props) {
                   }}
                 >
                   <span>Share</span>
-                </button>
+                </button> */}
               </div>
             </div>
           </React.Fragment>
@@ -715,7 +716,7 @@ function Resources(props) {
                   id="demo-simple-select-outlined-label"
                   classes={{root: classesInputLabel.root}}
                 >
-                  State/UT
+                  Pick State
                 </InputLabel>
                 <Select
                   native
@@ -728,7 +729,7 @@ function Resources(props) {
                   classes={{root: classesMenuItem.root}}
                 >
                   <option value="all" classes={{root: classesMenuItem.root}}>
-                    All states
+                    Select state
                   </option>
                   {getIndianStateOptions()}
                 </Select>
@@ -756,7 +757,7 @@ function Resources(props) {
                   classes={{root: classesMenuItem.root}}
                 >
                   <option value="all" classes={{root: classesMenuItem.root}}>
-                    All cities
+                    Select city
                   </option>
                   {getCityOptions()}
                 </Select>
@@ -784,7 +785,7 @@ function Resources(props) {
                   classes={{root: classesMenuItem.root}}
                 >
                   <option value="all" classes={{root: classesMenuItem.root}}>
-                    All categories
+                    Select category
                   </option>
                   {getCategoryOptions()}
                 </Select>
@@ -827,13 +828,13 @@ function Resources(props) {
               >
                 <span>Feedback</span>
               </a>
-              <button
+              {/* <button
                 onClick={openSharingTray}
                 className="button add-entry is-purple"
                 style={{margin: '0rem 0.2rem', padding: '0.4rem'}}
               >
                 <span>Share</span>
-              </button>
+              </button> */}
             </div>
           </React.Fragment>
         )}
@@ -850,7 +851,7 @@ function Resources(props) {
             category={category}
             indianstate={indianstate}
           />
-          <div>
+          {/* <div>
             <Fab
               color="inherit"
               aria-label="gototop"
@@ -866,7 +867,7 @@ function Resources(props) {
             >
               <NavigationOutlinedIcon htmlColor="#201aa299" />
             </Fab>
-          </div>
+          </div> */}
         </React.Fragment>
       )}
     </div>

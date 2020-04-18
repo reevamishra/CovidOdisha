@@ -7,7 +7,8 @@ function Table(props) {
   const [states, setStates] = useState(props.states);
   const [revealedStates, setRevealedStates] = useState({});
   const [districts, setDistricts] = useState({});
-  const [count, setCount] = useState(0);
+  //const [count, setCount] = useState();
+  const [setCount] = useState();
   const [sortData, setSortData] = useState({
     sortColumn: localStorage.getItem('state.sortColumn')
       ? localStorage.getItem('state.sortColumn')
@@ -41,6 +42,7 @@ function Table(props) {
       setCount(states.slice(1).filter((s) => s && s.confirmed > 0).length);
     }
   }, [states]);
+  //console.log(districts["Odisha"]);
 
   useEffect(() => {
     setDistricts(props.stateDistrictWiseData);
@@ -97,6 +99,7 @@ function Table(props) {
       ...revealedStates,
       [state]: !revealedStates[state],
     });
+    console.log(state);
   };
 
   doSort();
@@ -247,7 +250,7 @@ function Table(props) {
 
         <tbody>
           {states.map((state, index) => {
-            if (index !== 0 && state.confirmed > 0) {
+            if (index !== 0 && state.confirmed > 0 && state.state==="Odisha") {
               return (
                 <Row
                   key={index}
@@ -260,7 +263,7 @@ function Table(props) {
                       ? districts[state.state].districtData
                       : []
                   }
-                  onHighlightState={props.onHighlightState}
+                  //onHighlightState={props.onHighlightState}
                   onHighlightDistrict={props.onHighlightDistrict}
                   handleReveal={handleReveal}
                 />
@@ -270,20 +273,20 @@ function Table(props) {
           })}
         </tbody>
 
-        <tbody>
+        {/* <tbody>
           {states.length > 1 && props.summary === false && (
             <Row
               key={0}
               state={states[0]}
               total={true}
-              onHighlightState={props.onHighlightState}
+              //onHighlightState={props.onHighlightState}
             />
           )}
-        </tbody>
+        </tbody> */}
       </table>
-      <h5 className="table-fineprint fadeInUp" style={{animationDelay: '1s'}}>
-        {count} States/UTS Affected
-      </h5>
+      {/* <h5 className="table-fineprint fadeInUp" style={{animationDelay: '1s'}}>
+        {count} Districts Affected
+      </h5> */}
     </React.Fragment>
   );
 }

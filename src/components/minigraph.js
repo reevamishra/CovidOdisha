@@ -11,7 +11,7 @@ function Minigraph({timeseries}) {
   useEffect(() => {
     setTimeSeriesData(timeseries.slice(timeseries.length - 20));
   }, [timeseries]);
-
+  
   const graphData = useCallback(
     (data) => {
       if (data.length <= 1) return 0;
@@ -237,6 +237,7 @@ function Minigraph({timeseries}) {
   useEffect(() => {
     graphData(timeSeriesData);
   }, [timeSeriesData, graphData]);
+
 
   return (
     <div className="Minigraph">

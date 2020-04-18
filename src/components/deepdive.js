@@ -2,14 +2,15 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import GenderChart from './Charts/genderchart';
 import AgeChart from './Charts/agechart';
-import NationalityChart from './Charts/nationalitychart';
+// import NationalityChart from './Charts/nationalitychart';
 import AllStatesChart from './Charts/allstates';
-import TotalConfirmedChart from './Charts/totalconfirmedchart';
-import DailyConfirmedChart from './Charts/dailyconfirmedchart';
+// import TotalConfirmedChart from './Charts/totalconfirmedchart';
+// import DailyConfirmedChart from './Charts/dailyconfirmedchart';
 
 function DeepDive(props) {
   const [fetched, setFetched] = useState(false);
-  const [timeseries, setTimeseries] = useState([]);
+  //const [timeseries, setTimeseries] = useState([]);
+  const [setTimeseries] = useState([]);
   const [rawData, setRawData] = useState([]);
   const [statesTimeSeries, setStatesTimeSeries] = useState([]);
 
@@ -42,19 +43,19 @@ function DeepDive(props) {
   return (
     <div className="cards-container">
       <section className="cards">
-        <div className="card fadeInUp" style={{animationDelay: '0.7s'}}>
+        {/* <div className="card fadeInUp" style={{animationDelay: '0.7s'}}>
           <TotalConfirmedChart
             title="India - Total Cases"
             timeseries={timeseries}
           />
-        </div>
+        </div> */}
 
-        <div className="card fadeInUp" style={{animationDelay: '0.7s'}}>
+        {/* <div className="card fadeInUp" style={{animationDelay: '0.7s'}}>
           <DailyConfirmedChart
             title="India - Daily Cases"
             timeseries={timeseries}
           />
-        </div>
+        </div> */}
 
         <div className="card fadeInUp" style={{animationDelay: '0.7s'}}>
           <AllStatesChart
@@ -71,9 +72,9 @@ function DeepDive(props) {
           <AgeChart title="Patient Age" data={rawData} />
         </div>
 
-        <div className="card fadeInUp" style={{animationDelay: '0.7s'}}>
+        {/* <div className="card fadeInUp" style={{animationDelay: '0.7s'}}>
           <NationalityChart title="Patient Nationality" data={rawData} />
-        </div>
+        </div> */}
       </section>
     </div>
   );
