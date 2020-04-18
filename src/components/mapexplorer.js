@@ -256,10 +256,18 @@ function MapExplorer({
   onMapHighlightChange,
 }) {
   const [selectedRegion, setSelectedRegion] = useState({});
-  const [panelRegion, setPanelRegion] = useState(getRegionFromState(states[27]));
+  const [panelRegion, setPanelRegion] = useState(getRegionFromState(
+    states.find((state) => state.state === "Odisha")
+  ));
   const [currentHoveredRegion, setCurrentHoveredRegion] = useState(
     getRegionFromState(states[0])
   );
+  
+  console.log(getRegionFromState(states[0]));
+
+  console.log(getRegionFromState(
+    states.find((state) => state.state === "Odisha")
+  ));
   const [testObj, setTestObj] = useState({});
   const [currentMap, setCurrentMap] = useState(mapMeta.Odisha);
   const [statistic, currentMapData] = useMemo(() => {
@@ -325,6 +333,7 @@ function MapExplorer({
         const panelRegion = getRegionFromState(
           states.find((state) => currentMap.name === state.state)
         );
+        //console.log(state,state.state);
         setPanelRegion(panelRegion);
         onMapHighlightChange(panelRegion);
       }
