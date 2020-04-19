@@ -209,10 +209,7 @@ function Home(props) {
                 <h6 style={{color: '#28a745', fontWeight: 600}}>
                   {isNaN(Date.parse(formatDate(lastUpdated)))
                     ? ''
-                    : formatDistance(
-                        new Date(formatDate(lastUpdated)),
-                        new Date()
-                      ) + ' Ago'}
+                    : ' '}
                 </h6>
                 <h6 style={{color: '#28a745', fontWeight: 600}}>
                   {isNaN(Date.parse(formatDate(lastUpdated)))
@@ -341,7 +338,7 @@ function Home(props) {
         {/* <div className="home-left"></div> */}
       {/* </div> */}
       
-      <footer className="fadeInUp" style={{animationDelay: '3s'}}>
+      <footer className="fadeInUp" style={{animationDelay: '2s'}}>
       <h5>{t('Stay Hygenic. Stay Safe.')}</h5>
       </footer>
 

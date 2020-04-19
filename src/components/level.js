@@ -60,7 +60,7 @@ function Level(props) {
             : ''}
           ]
         </h4> */}
-        <h1>{formatNumber(confirmed)} </h1>
+        <h1>{t(formatNumber(confirmed)[0])+t(formatNumber(confirmed)[1])+t(formatNumber(confirmed)[2])} </h1>
       </div>
 
       <div
@@ -70,7 +70,7 @@ function Level(props) {
         <h5 className="heading">{t('Active')}</h5>
         {/* <h4>&nbsp;</h4> */}
         {/* <h4>[{props.deltas ? props.deltas.confirmeddelta-(props.deltas.recovereddelta+props.deltas.deceaseddelta) >=0 ? '+'+(props.deltas.confirmeddelta-(props.deltas.recovereddelta+props.deltas.deceaseddelta)).toString() : '+0' : ''}]</h4>*/}
-        <h1 className="title has-text-info">{formatNumber(active)}</h1>
+        <h1 className="title has-text-info">{t(formatNumber(active)[0])+t(formatNumber(active)[1])+t(formatNumber(active)[2])}</h1>
       </div>
 
       <div
@@ -87,7 +87,7 @@ function Level(props) {
             : ''}
           ] */}
         {/* </h4> */}
-        <h1 className="title has-text-success">{formatNumber(recoveries)} </h1>
+        <h1 className="title has-text-success">{t(formatNumber(recoveries)[0])+t(formatNumber(recoveries)[1])+t(formatNumber(recoveries)[2])} </h1>
       </div>
 
       <div
@@ -104,7 +104,7 @@ function Level(props) {
             : ''}
           ]
         </h4> */}
-        <h1 className="title has-text-grey">{formatNumber(deaths)}</h1>
+        <h1 className="title has-text-grey">{t(formatNumber(deaths)[0])+t(formatNumber(deaths)[1])+t(formatNumber(deaths)[2])}</h1>
       </div>
     </div>
   );

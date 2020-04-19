@@ -413,7 +413,7 @@ function MapExplorer({
         <div className="stats fadeInUp" style={{animationDelay: '2s'}}>
           <h5>{t(window.innerWidth <= 769 ? 'Cnfmd' : 'Confirmed')}</h5>
           <div className="stats-bottom">
-            <h1>{formatNumber(panelRegion.confirmed)}</h1>
+            <h1>{t(formatNumber(panelRegion.confirmed)[0])+t(formatNumber(panelRegion.confirmed)[1])+t(formatNumber(panelRegion.confirmed)[2])+t(formatNumber(panelRegion.confirmed)[3])}</h1>
             <h6>{}</h6>
           </div>
         </div>
@@ -457,7 +457,9 @@ function MapExplorer({
           >
             <h5>{t(window.innerWidth <= 769 ? 'Negative' : 'Tested Negative')}</h5>
             <div className="stats-bottom">
-              <h1>{formatNumber(testObj?.totaltested - panelRegion.confirmed)}</h1>
+              <h1>{t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[0])+t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[1])
+                  +t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[2])+t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[3])
+                  +t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[4])}</h1>
             </div>
             <h6 className="timestamp">
               {!isNaN(new Date(testObj?.updatedon))
@@ -481,7 +483,9 @@ function MapExplorer({
           >
             <h5>{t(window.innerWidth <= 769 ? 'All' : 'All Tested')}</h5>
             <div className="stats-bottom">
-              <h1>{formatNumber(testObj?.totaltested)}</h1>
+              <h1>{t(formatNumber(testObj?.totaltested)[0])+t(formatNumber(testObj?.totaltested)[1])
+                  +t(formatNumber(testObj?.totaltested)[2])+t(formatNumber(testObj?.totaltested)[3])
+                  +t(formatNumber(testObj?.totaltested)[4])}</h1>
             </div>
             <h6 className="timestamp">
               {!isNaN(new Date(testObj?.updatedon))
@@ -531,16 +535,16 @@ function MapExplorer({
         {currentMap.mapType === MAP_TYPES.STATE ? (
           <h4 className="district-confirmed">
             {t('Confirmed cases')}:{' '}
-            {currentMapData[currentHoveredRegion.name]
+            {t(currentMapData[currentHoveredRegion.name]
               ? currentMapData[currentHoveredRegion.name]
-              : 0}
+              : 0)}
           </h4>
         ) : null}
 
         {currentMap.mapType === MAP_TYPES.STATE &&
         currentMapData.Unknown > 0 ? (
           <h4 className="unknown">
-            Districts unknown for {currentMapData.Unknown} people
+            {t('Districts unknown for')}{' '} {currentMapData.Unknown}{' '}{t('people')}
           </h4>
         ) : null}
 

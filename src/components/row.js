@@ -126,7 +126,7 @@ function Row(props) {
           <span className="table__count-text">
             {parseInt(state.confirmed) === 0
               ? '-'
-              : formatNumber(state.confirmed)}
+              : t(formatNumber(state.confirmed)[0])+t(formatNumber(state.confirmed)[1])}
           </span>
         </td>
         <td
@@ -136,7 +136,7 @@ function Row(props) {
             {!state.delta.active==0 && <Icon.ArrowUp/>}
             {state.delta.active>0 ? `${state.delta.active}` : ''}
           </span>*/}
-          {parseInt(state.active) === 0 ? '-' : formatNumber(state.active)}
+          {parseInt(state.active) === 0 ? '-' : t(formatNumber(state.active)[0])+t(formatNumber(state.active)[1])}
         </td>
         <td
           style={{
@@ -150,7 +150,7 @@ function Row(props) {
           <span className="table__count-text">
             {parseInt(state.recovered) === 0
               ? '-'
-              : formatNumber(state.recovered)}
+              : t(formatNumber(state.recovered)[0])+t(formatNumber(state.recovered)[1])}
           </span>
         </td>
         <td
@@ -161,7 +161,7 @@ function Row(props) {
             {state.deltadeaths > 0 ? `${state.deltadeaths}` : ''}
           </span>
           <span className="table__count-text">
-            {parseInt(state.deaths) === 0 ? '-' : formatNumber(state.deaths)}
+            {parseInt(state.deaths) === 0 ? '-' : t(formatNumber(state.deaths)[0])+t(formatNumber(state.deaths)[1])}
           </span>
         </td>
       </tr>
@@ -175,17 +175,27 @@ function Row(props) {
             <h6>{t('Last Updated')}&nbsp;</h6>
             <h6
               title={
-                isNaN(Date.parse(formatDate(props.state.lastupdatedtime)))
+                isNaN(formatDateAbsolute(props.state.lastupdatedtime))
                   ? ''
                   : formatDateAbsolute(props.state.lastupdatedtime)
               }
             >
               {isNaN(Date.parse(formatDate(props.state.lastupdatedtime)))
                 ? ''
-                : `${formatDistance(
-                    new Date(formatDate(props.state.lastupdatedtime)),
-                    new Date()
-                  )} Ago`}
+                : `${t(formatDateAbsolute(props.state.lastupdatedtime)[0])
+                    +t(formatDateAbsolute(props.state.lastupdatedtime)[1])
+                    +t(formatDateAbsolute(props.state.lastupdatedtime)[2])
+                    +t(formatDateAbsolute(props.state.lastupdatedtime)[3]
+                    +formatDateAbsolute(props.state.lastupdatedtime)[4]
+                    +formatDateAbsolute(props.state.lastupdatedtime)[5])
+                    +t(formatDateAbsolute(props.state.lastupdatedtime)[6])
+                    +t(formatDateAbsolute(props.state.lastupdatedtime)[7])
+                    +t(formatDateAbsolute(props.state.lastupdatedtime)[8])
+                    +t(formatDateAbsolute(props.state.lastupdatedtime)[9])
+                    +t(formatDateAbsolute(props.state.lastupdatedtime)[10])
+                    +':'
+                    +t(formatDateAbsolute(props.state.lastupdatedtime)[11])
+                    +t(formatDateAbsolute(props.state.lastupdatedtime)[12])} `}
             </h6>
           </div>
         </td>
@@ -272,7 +282,8 @@ function Row(props) {
                         : ''}
                     </span>
                     <span className="table__count-text">
-                      {formatNumber(sortedDistricts[district].confirmed)}
+                      {t(formatNumber(sortedDistricts[district].confirmed)[0])+t(formatNumber(sortedDistricts[district].confirmed)[1])
+                      +t(formatNumber(sortedDistricts[district].confirmed)[2])+t(formatNumber(sortedDistricts[district].confirmed)[3])}
                     </span>
                   </td>
                 </tr>
@@ -288,7 +299,7 @@ function Row(props) {
             style={{display: props.reveal && !props.total ? '' : 'none'}}
           >
             <td style={{fontWeight: 600}}>
-              Unknown{' '}
+              {t('Unknown')}{' '}
               <span style={{fontSize: '0.75rem', color: '#201aa299'}}>#</span>
             </td>
             <td>
@@ -301,7 +312,7 @@ function Row(props) {
                   : ''}
               </span>
               <span className="table__count-text">
-                {formatNumber(sortedDistricts['Unknown'].confirmed)}
+                {t(formatNumber(sortedDistricts['Unknown'].confirmed))}
               </span>
             </td>
           </tr>
