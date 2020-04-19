@@ -10,8 +10,8 @@ const LanguageSelector = () => {
 
   return (
     <div onChange={changeLanguage}>
-      <input type="radio" value="en" name="language" defaultChecked /> English
-      <input type="radio" value="or" name="language"/> Odia
+      <input type="radio" value="or" name="language" defaultChecked/> Odia
+      <input type="radio" value="en" name="language" /> English      
     </div>
   )
 }
