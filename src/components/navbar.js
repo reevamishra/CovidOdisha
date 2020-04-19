@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function Navbar(props) {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -11,7 +12,7 @@ function Navbar(props) {
       animationDelay: `${animationDelay}s`,
     },
   });
-
+  const { t } = useTranslation();
   if (window.location.pathname !== '/summary') {
     return (
       <div
@@ -48,7 +49,7 @@ function Navbar(props) {
                       page.animationDelayForNavbar
                     )}
                   >
-                    {page.displayName}
+                    {t(page.displayName)}
                   </span>
                 </Link>
               );

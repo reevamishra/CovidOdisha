@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {formatNumber} from '../utils/common-functions';
+import { useTranslation } from 'react-i18next';
 
 function Level(props) {
   const [data, setData] = useState(props.data);
@@ -42,14 +43,14 @@ function Level(props) {
     };
     parseData();
   }, [data]);
-
+  const { t } = useTranslation();
   return (
     <div className="Level">
       <div
         className="level-item is-cherry fadeInUp"
         style={{animationDelay: '1s'}}
       >
-        <h5>Confirmed</h5>
+        <h5>{t('Confirmed')}</h5>
         {/* <h4>
           [
           {deltas
@@ -66,7 +67,7 @@ function Level(props) {
         className="level-item is-blue fadeInUp"
         style={{animationDelay: '1.1s'}}
       >
-        <h5 className="heading">Active</h5>
+        <h5 className="heading">{t('Active')}</h5>
         {/* <h4>&nbsp;</h4> */}
         {/* <h4>[{props.deltas ? props.deltas.confirmeddelta-(props.deltas.recovereddelta+props.deltas.deceaseddelta) >=0 ? '+'+(props.deltas.confirmeddelta-(props.deltas.recovereddelta+props.deltas.deceaseddelta)).toString() : '+0' : ''}]</h4>*/}
         <h1 className="title has-text-info">{formatNumber(active)}</h1>
@@ -76,7 +77,7 @@ function Level(props) {
         className="level-item is-green fadeInUp"
         style={{animationDelay: '1.2s'}}
       >
-        <h5 className="heading">Recovered</h5>
+        <h5 className="heading">{t('Recovered')}</h5>
         {/* <h4>
           [
           {deltas
@@ -93,7 +94,7 @@ function Level(props) {
         className="level-item is-gray fadeInUp"
         style={{animationDelay: '1.3s'}}
       >
-        <h5 className="heading">Deceased</h5>
+        <h5 className="heading">{t('Deceased')}</h5>
         {/* <h4>
           [
           {deltas

@@ -5,6 +5,7 @@ import {formatDate, formatDateAbsolute} from '../utils/common-functions';
 import {formatDistance, format, parse} from 'date-fns';
 import {formatNumber} from '../utils/common-functions';
 import * as Icon from 'react-feather';
+import { useTranslation } from 'react-i18next';
 
 const mapMeta = {
   // India: {
@@ -392,7 +393,7 @@ function MapExplorer({
       )
     );
   }, [panelRegion, stateTestData, testObj]);
-
+  const { t } = useTranslation();
   return (
     <div
       className="MapExplorer fadeInUp"
@@ -400,17 +401,17 @@ function MapExplorer({
       ref={forwardRef}
     >
       <div className="header">
-        <h1>Odisha COVID-19 Tracker</h1>
+        <h1>{t('Odisha COVID-19 Tracker')}</h1>
         <h6>
-          {window.innerWidth <= 769 ? 'Tap' : 'Hover'} over a{' '}
-          {currentMap.mapType === MAP_TYPES.STATE ? 'district' : ''}{' '}
-          for more details
+          {t(window.innerWidth <= 769 ? 'Tap' : 'Hover')} {t('over a')}{' '}
+          {t(currentMap.mapType === MAP_TYPES.STATE ? 'district' : '')}{' '}
+          {t('for more details')}
         </h6>
       </div>
 
       <div className="map-stats">
         <div className="stats fadeInUp" style={{animationDelay: '2s'}}>
-          <h5>{window.innerWidth <= 769 ? 'Cnfmd' : 'Confirmed'}</h5>
+          <h5>{t(window.innerWidth <= 769 ? 'Cnfmd' : 'Confirmed')}</h5>
           <div className="stats-bottom">
             <h1>{formatNumber(panelRegion.confirmed)}</h1>
             <h6>{}</h6>
@@ -454,7 +455,7 @@ function MapExplorer({
             className="stats is-yellow tested fadeInUp"
             style={{animationDelay: '2.4s'}}
           >
-            <h5>{window.innerWidth <= 769 ? 'Tested' : 'Tested Negative'}</h5>
+            <h5>{t(window.innerWidth <= 769 ? 'Negative' : 'Tested Negative')}</h5>
             <div className="stats-bottom">
               <h1>{formatNumber(testObj?.totaltested - panelRegion.confirmed)}</h1>
             </div>
@@ -478,7 +479,7 @@ function MapExplorer({
             className="stats is-purple tested fadeInUp"
             style={{animationDelay: '2.4s'}}
           >
-            <h5>{window.innerWidth <= 769 ? 'Tested' : 'All Tested'}</h5>
+            <h5>{t(window.innerWidth <= 769 ? 'All' : 'All Tested')}</h5>
             <div className="stats-bottom">
               <h1>{formatNumber(testObj?.totaltested)}</h1>
             </div>
@@ -500,7 +501,7 @@ function MapExplorer({
       </div>
 
       <div className="meta fadeInUp" style={{animationDelay: '2.4s'}}>
-        <h2>{name}</h2>
+        <h2>{t(name)}</h2>
         {/* {lastupdatedtime && (
           <div
             className={`last-update ${
@@ -529,7 +530,7 @@ function MapExplorer({
 
         {currentMap.mapType === MAP_TYPES.STATE ? (
           <h4 className="district-confirmed">
-            Confirmed cases:{' '}
+            {t('Confirmed cases')}:{' '}
             {currentMapData[currentHoveredRegion.name]
               ? currentMapData[currentHoveredRegion.name]
               : 0}

@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef, useCallback} from 'react';
 import axios from 'axios';
 import {formatDistance, format} from 'date-fns';
 import * as Icon from 'react-feather';
+import { useTranslation } from 'react-i18next';
 
 import {
   formatDate,
@@ -30,7 +31,7 @@ function Home(props) {
   const [timeseriesMode, setTimeseriesMode] = useState(true);
   const [timeseriesLogMode, setTimeseriesLogMode] = useState(false);
   const [regionHighlighted, setRegionHighlighted] = useState(undefined);
-
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (fetched === false) {
@@ -110,10 +111,10 @@ function Home(props) {
 
               <div
                 className="timeseries-header fadeInUp"
-                // style={{animationDelay: '.5s'}}
+                style={{animationDelay: '3s'}}
                 ref={refs[2]}
               >
-                <h1>Spread Trends</h1>
+                <h1>{t('Spread Trends')}</h1>
                 <div className="tabs">
                   <div
                     className={`tab ${graphOption === 1 ? 'focused' : ''}`}
@@ -121,7 +122,7 @@ function Home(props) {
                       setGraphOption(1);
                     }}
                   >
-                    <h4>Cumulative</h4>
+                    <h4>{t('Cumulative')}</h4>
                   </div>
                   <div
                     className={`tab ${graphOption === 2 ? 'focused' : ''}`}
@@ -129,14 +130,14 @@ function Home(props) {
                       setGraphOption(2);
                     }}
                   >
-                    <h4>Daily</h4>
+                    <h4>{t('Daily')}</h4>
                   </div>
                 </div>
 
                 <div className="scale-modes">
-                  <label>Scale Modes</label>
+                  <label>{t('Scale Modes')}</label>
                   <div className="timeseries-mode">
-                    <label htmlFor="timeseries-mode">Uniform</label>
+                    <label htmlFor="timeseries-mode">{t('Uniform')}</label>
                     <input
                       type="checkbox"
                       checked={timeseriesMode}
@@ -152,7 +153,7 @@ function Home(props) {
                       graphOption !== 1 ? 'disabled' : ''
                     }`}
                   >
-                    <label htmlFor="timeseries-logmode">Logarithmic</label>
+                    <label htmlFor="timeseries-logmode">{t('Logarithmic')}</label>
                     <input
                       type="checkbox"
                       checked={graphOption === 1 && timeseriesLogMode}
@@ -204,7 +205,7 @@ function Home(props) {
                 {/* <h6 style={{fontWeight: 600}}>A Crowdsourced Initiative</h6> */}
               </div>
               <div className="last-update">
-                <h6>Last Updated</h6>
+                <h6>{t('Last Updated')}</h6>
                 <h6 style={{color: '#28a745', fontWeight: 600}}>
                   {isNaN(Date.parse(formatDate(lastUpdated)))
                     ? ''
@@ -339,6 +340,11 @@ function Home(props) {
 
         {/* <div className="home-left"></div> */}
       {/* </div> */}
+      
+      <footer className="fadeInUp" style={{animationDelay: '3s'}}>
+      <h5>{t('Stay Hygenic. Stay Safe.')}</h5>
+      </footer>
+
     </React.Fragment>
   );
 }

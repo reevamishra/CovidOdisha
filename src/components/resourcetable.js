@@ -12,6 +12,7 @@ import Autosuggest from 'react-autosuggest';
 import TextField from '@material-ui/core/TextField';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import { useTranslation } from 'react-i18next';
 
 const usePanelSummaryStyles = makeStyles((theme) => ({
   content: {
@@ -346,12 +347,12 @@ function ResourceTable({
     defaultColumn,
     initialState: {hiddenColumns: 'contact'},
   });
-
+  const { t } = useTranslation();
   // Render the UI for your table
   if (isDesktop === true)
     return (
       <>
-        <div className="searchbar">
+        {/* <div className="searchbar">
           <Autosuggest
             suggestions={suggestions}
             onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -361,50 +362,166 @@ function ResourceTable({
             alwaysRenderSuggestions={true}
             renderInputComponent={renderInputComponent}
           />
-        </div>
-        <div className="tableandcontrols">
+        </div> */}
+        <div
+          className="resourcesaccordion"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '100%',
+            alignItems: 'left'
+          }}
+        >
           <InfiniteScroll
             dataLength={data.length}
             hasMore={data.length < totalCount}
             next={onScrollUpdate}
-            loader={<h4>Fetching more information, please wait.</h4>}
+            loader={<h4>{t('Fetching more information, please wait.')}</h4>}
+            style={{width: '300%', maxWidth: '1450px', overflow: 'scroll'}} // for large texts
           >
-            <table {...getTableProps()}>
-              <thead>
-                {headerGroups.map((headerGroup) => (
-                  <tr
-                    key={headerGroup.id}
-                    {...headerGroup.getHeaderGroupProps()}
+            {rows.map((row, i) => {
+              prepareRow(row);
+              return (
+                <ExpansionPanel
+                  key={row.id}
+                  classes={{root: classesPanel.root}}
+                  expanded={expanded === `panel-${i}`}
+                  onChange={handleExpansionChange(`panel-${i}`)}
+                >
+                  <ExpansionPanelSummary
+                    classes={{
+                      content: classesPannelSummary.content,
+                      root: classesPannelSummary.root,
+                    }}
                   >
-                    {headerGroup.headers.map((column, i) => (
-                      <th
-                        key={column.id}
-                        {...column.getHeaderProps()}
-                        className={i === 3 ? 'descriptionCol sticky' : 'sticky'}
+                    {/* <div className="expanelheading"
+                                 style={{display: 'flex',
+                                         flexDirection: 'row',
+                                         justifyContent: 'space-between',
+                                         backgroundColor: 'blue'}}> */}
+                    <div
+                      className="orgname"
+                      style={{
+                        maxWidth: '10rem',
+                        textAlign: 'start',
+                        color: '#201aa2dd',
+                      }}
+                    >
+                      <h6>
+                        {t(parseText(row.values['nameoftheorganisation'], 50))}
+                      </h6>
+                    </div>
+                    <div
+                      className="orgcategory"
+                      style={{maxWidth: '10.9rem', textAlign: 'end'}}
+                    >
+                      <h6>{t(row.values['category'])}</h6>
+                    </div>
+                    {/* </div> */}
+                  </ExpansionPanelSummary>
+                  <ExpansionPanelDetails
+                    classes={{root: classesPanelDetails.root}}
+                  >
+                    <List
+                      disablePadding={true}
+                      dense={true}
+                      classes={{root: classesList.root}}
+                    >
+                      <ListItem
+                        alignItems="flex-start"
+                        dense={true}
+                        divider={true}
                       >
-                        {column.render('Header')}
-                      </th>
-                    ))}
-                  </tr>
-                ))}
-              </thead>
-              <tbody {...getTableBodyProps()}>
-                {rows.map((row, i) => {
-                  prepareRow(row);
-                  return (
-                    <tr key={row.id} {...row.getRowProps()}>
-                      {row.cells.map((cell, cellindex) => {
-                        return (
-                          <td key={cellindex} {...cell.getCellProps()}>
-                            {cell.render(rendercell)}
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                        <ListItemText
+                          primary={t("Organisation Name")}
+                          secondary={t(row.values['nameoftheorganisation'])}
+                          classes={{
+                            primary: classesListItemText.primary,
+                            secondary: classesListItemText.secondary,
+                          }}
+                        />
+                      </ListItem>
+                      <ListItem
+                        alignItems="flex-start"
+                        dense={true}
+                        divider={true}
+                      >
+                        <ListItemText
+                          primary={t("Location")}
+                          secondary={t(row.values['city'])}
+                          classes={{
+                            primary: classesListItemText.primary,
+                            secondary: classesListItemText.secondary,
+                          }}
+                        />
+                      </ListItem>
+                      <ListItem
+                        alignItems="flex-start"
+                        dense={true}
+                        divider={true}
+                      >
+                        <ListItemText
+                          primary={t("Description")}
+                          secondary={t(
+                            row.values['descriptionandorserviceprovided'])
+                          }
+                          classes={{
+                            primary: classesListItemText.primary,
+                            secondary: classesListItemText.secondary,
+                          }}
+                        />
+                      </ListItem>
+                      <ListItem
+                        alignItems="flex-start"
+                        dense={true}
+                        divider={true}
+                      >
+                        <ListItemText
+                          primary={t("Service")}
+                          secondary={t(row.values['category'])}
+                          classes={{
+                            primary: classesListItemText.primary,
+                            secondary: classesListItemText.secondary,
+                          }}
+                        />
+                      </ListItem>
+                      <ListItem
+                        alignItems="flex-start"
+                        dense={true}
+                        divider={true}
+                      >
+                        <ListItemText
+                          primary={t("Phonenumber")}
+                          secondary={getFormattedLinkForAccordion(
+                            row.values['phonenumber']
+                          )}
+                          classes={{
+                            primary: classesListItemText.primary,
+                            secondary: classesListItemText.secondary,
+                          }}
+                        />
+                      </ListItem>
+                      <ListItem
+                        alignItems="flex-start"
+                        dense={true}
+                        divider={true}
+                      >
+                        <ListItemText
+                          primary={t("Website")}
+                          secondary={getFormattedLinkForAccordion(
+                            row.values['contact']
+                          )}
+                          classes={{
+                            primary: classesListItemText.primary,
+                            secondary: classesListItemText.secondary,
+                          }}
+                        />
+                      </ListItem>
+                    </List>
+                  </ExpansionPanelDetails>
+                </ExpansionPanel>
+              );
+            })}
           </InfiniteScroll>
         </div>
       </>
@@ -412,7 +529,7 @@ function ResourceTable({
   else
     return (
       <>
-        <div className="searchbar">
+        {/* <div className="searchbar">
           <Autosuggest
             suggestions={suggestions}
             onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -422,7 +539,7 @@ function ResourceTable({
             alwaysRenderSuggestions={true}
             renderInputComponent={renderInputComponent}
           />
-        </div>
+        </div> */}
         <div
           className="resourcesaccordion"
           style={{
@@ -436,7 +553,7 @@ function ResourceTable({
             dataLength={data.length}
             hasMore={data.length < totalCount}
             next={onScrollUpdate}
-            loader={<h4>Fetching more information, please wait.</h4>}
+            loader={<h4>{t('Fetching more information, please wait.')}</h4>}
             style={{width: '100%', maxWidth: '335px', overflow: 'hidden'}} // for large texts
           >
             {rows.map((row, i) => {
@@ -468,14 +585,14 @@ function ResourceTable({
                       }}
                     >
                       <h6>
-                        {parseText(row.values['nameoftheorganisation'], 50)}
+                        {t(parseText(row.values['nameoftheorganisation'], 50))}
                       </h6>
                     </div>
                     <div
                       className="orgcategory"
                       style={{maxWidth: '10.9rem', textAlign: 'end'}}
                     >
-                      <h6>{row.values['category']}</h6>
+                      <h6>{t(row.values['category'])}</h6>
                     </div>
                     {/* </div> */}
                   </ExpansionPanelSummary>
@@ -493,8 +610,8 @@ function ResourceTable({
                         divider={true}
                       >
                         <ListItemText
-                          primary="Organisation Name"
-                          secondary={row.values['nameoftheorganisation']}
+                          primary={t("Organisation Name")}
+                          secondary={t(row.values['nameoftheorganisation'])}
                           classes={{
                             primary: classesListItemText.primary,
                             secondary: classesListItemText.secondary,
@@ -507,8 +624,8 @@ function ResourceTable({
                         divider={true}
                       >
                         <ListItemText
-                          primary="Location"
-                          secondary={row.values['city']}
+                          primary={t("Location")}
+                          secondary={t(row.values['city'])}
                           classes={{
                             primary: classesListItemText.primary,
                             secondary: classesListItemText.secondary,
@@ -521,9 +638,9 @@ function ResourceTable({
                         divider={true}
                       >
                         <ListItemText
-                          primary="Description"
-                          secondary={
-                            row.values['descriptionandorserviceprovided']
+                          primary={t("Description")}
+                          secondary={t(
+                            row.values['descriptionandorserviceprovided'])
                           }
                           classes={{
                             primary: classesListItemText.primary,
@@ -537,8 +654,8 @@ function ResourceTable({
                         divider={true}
                       >
                         <ListItemText
-                          primary="Service"
-                          secondary={row.values['category']}
+                          primary={t("Service")}
+                          secondary={t(row.values['category'])}
                           classes={{
                             primary: classesListItemText.primary,
                             secondary: classesListItemText.secondary,
@@ -551,7 +668,7 @@ function ResourceTable({
                         divider={true}
                       >
                         <ListItemText
-                          primary="Phonenumber"
+                          primary={t("Phonenumber")}
                           secondary={getFormattedLinkForAccordion(
                             row.values['phonenumber']
                           )}
@@ -567,7 +684,7 @@ function ResourceTable({
                         divider={true}
                       >
                         <ListItemText
-                          primary="Website"
+                          primary={t("Website")}
                           secondary={getFormattedLinkForAccordion(
                             row.values['contact']
                           )}

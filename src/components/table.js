@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-
+import { useTranslation } from 'react-i18next';
 import Row from './row';
 
 function Table(props) {
@@ -104,7 +104,7 @@ function Table(props) {
   };
 
   doSort();
-
+  const { t } = useTranslation();
   return (
     <React.Fragment>
       <h5
@@ -112,7 +112,8 @@ function Table(props) {
         style={{animationDelay: '1.8s'}}
         ref={props.forwardRef}
       >
-        Compiled from State Govt. numbers <Link to="/faq">Know More</Link>
+        {t('Compiled from State Govt. numbers')}
+        {/* <Link to="/faq">Know More</Link> */}
       </h5>
       <table className="table fadeInUp" style={{animationDelay: '1.8s'}}>
         <thead>
@@ -122,7 +123,7 @@ function Table(props) {
               onClick={(e) => handleSort(e, props)}
             >
               <div className="heading-content">
-                <abbr title="State">State/UT</abbr>
+                <abbr title="State">{t('State')}</abbr>
                 <div
                   style={{
                     display:
@@ -143,11 +144,11 @@ function Table(props) {
                   className={`${window.innerWidth <= 769 ? 'is-cherry' : ''}`}
                   title="Confirmed"
                 >
-                  {window.innerWidth <= 769
+                  {t(window.innerWidth <= 769
                     ? window.innerWidth <= 375
                       ? 'C'
                       : 'Cnfmd'
-                    : 'Confirmed'}
+                    : 'Confirmed')}
                 </abbr>
                 <div
                   style={{
@@ -169,11 +170,11 @@ function Table(props) {
                   className={`${window.innerWidth <= 769 ? 'is-blue' : ''}`}
                   title="Active"
                 >
-                  {window.innerWidth <= 769
+                  {t(window.innerWidth <= 769
                     ? window.innerWidth <= 375
                       ? 'A'
                       : 'Actv'
-                    : 'Active'}
+                    : 'Active')}
                 </abbr>
                 <div
                   style={{
@@ -195,11 +196,11 @@ function Table(props) {
                   className={`${window.innerWidth <= 769 ? 'is-green' : ''}`}
                   title="Recovered"
                 >
-                  {window.innerWidth <= 769
+                  {t(window.innerWidth <= 769
                     ? window.innerWidth <= 375
                       ? 'R'
                       : 'Rcvrd'
-                    : 'Recovered'}
+                    : 'Recovered')}
                 </abbr>
                 <div
                   className={
@@ -226,11 +227,11 @@ function Table(props) {
                   className={`${window.innerWidth <= 769 ? 'is-gray' : ''}`}
                   title="Deaths"
                 >
-                  {window.innerWidth <= 769
+                  {t(window.innerWidth <= 769
                     ? window.innerWidth <= 375
                       ? 'D'
                       : 'Dcsd'
-                    : 'Deceased'}
+                    : 'Deceased')}
                 </abbr>
                 <div
                   style={{

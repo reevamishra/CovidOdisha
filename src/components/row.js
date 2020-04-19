@@ -7,6 +7,7 @@ import {
 } from '../utils/common-functions';
 import {formatDistance} from 'date-fns';
 import {Link} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function Row(props) {
   const [state, setState] = useState(props.state);
@@ -85,7 +86,7 @@ function Row(props) {
   useEffect(() => {
     sortDistricts(districts);
   }, [districts, sortData, sortDistricts]);
-
+  const { t } = useTranslation();
   return (
     <React.Fragment>
       <tr
@@ -109,7 +110,7 @@ function Row(props) {
             >
               {/* <Icon.ChevronDown /> */}
             </span>
-            {state.state}
+            {t(state.state)}
             {state.state === 'West Bengal' && (
               <Link to="/faq">
                 <Icon.HelpCircle className="height-22" />
@@ -171,7 +172,7 @@ function Row(props) {
       >
         <td colSpan={2}>
           <div className="last-update">
-            <h6>Last Updated&nbsp;</h6>
+            <h6>{t('Last Updated')}&nbsp;</h6>
             <h6
               title={
                 isNaN(Date.parse(formatDate(props.state.lastupdatedtime)))
@@ -196,7 +197,7 @@ function Row(props) {
       >
         <td onClick={(e) => handleSort('district')}>
           <div className="heading-content">
-            <abbr title="District">District</abbr>
+            <abbr title="District">{t('District')}</abbr>
             <div
               style={{
                 display:
@@ -217,11 +218,11 @@ function Row(props) {
               className={`${window.innerWidth <= 769 ? 'is-cherry' : ''}`}
               title="Confirmed"
             >
-              {window.innerWidth <= 769
+              {t(window.innerWidth <= 769
                 ? window.innerWidth <= 375
                   ? 'C'
                   : 'Cnfmd'
-                : 'Confirmed'}
+                : 'Confirmed')}
             </abbr>
             <div
               style={{
@@ -260,7 +261,7 @@ function Row(props) {
                     props.onHighlightDistrict?.(district, state, props.index)
                   }
                 >
-                  <td style={{fontWeight: 600}}>{district}</td>
+                  <td style={{fontWeight: 600}}>{t(district)}</td>
                   <td>
                     <span className="deltas" style={{color: '#ff073a'}}>
                       {sortedDistricts[district].delta.confirmed > 0 && (

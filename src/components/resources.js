@@ -9,6 +9,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined';
 import Fab from '@material-ui/core/Fab';
 import NavigationOutlinedIcon from '@material-ui/icons/NavigationOutlined';
+import { useTranslation } from 'react-i18next';
 
 export const useFormControlStyles = makeStyles((isDesktop) => {
   if (isDesktop === true)
@@ -188,7 +189,7 @@ function Resources(props) {
                 textTransform: 'uppercase',
               }}
             >
-              {x}
+              {t(x)}
             </option>
           ));
       }
@@ -211,7 +212,7 @@ function Resources(props) {
             textTransform: 'uppercase',
           }}
         >
-          {x}
+          {t(x)}
         </option>
       ));
   };
@@ -222,7 +223,7 @@ function Resources(props) {
         Object.values(resourcedict).forEach((state) => {
           Object.values(state).forEach((citydata) => {
             Object.keys(citydata).forEach((x) => {
-              if (array.indexOf(x) === -1) array.push(x);
+              if (array.indexOf(x) === -1 && x.state==="Odisha") array.push(x);
             });
           });
         });
@@ -237,7 +238,7 @@ function Resources(props) {
               textTransform: 'uppercase',
             }}
           >
-            {x}
+            {t(x)}
           </option>
         ));
       } else {
@@ -259,7 +260,7 @@ function Resources(props) {
                 textTransform: 'uppercase',
               }}
             >
-              {x}
+              {t(x)}
             </option>
           ));
         } else {
@@ -276,7 +277,7 @@ function Resources(props) {
                   textTransform: 'uppercase',
                 }}
               >
-                {x}
+                {t(x)}
               </option>
             ));
         }
@@ -428,11 +429,12 @@ function Resources(props) {
       openSharingLink(message);
     }
   };
+  const { t } = useTranslation();
   return (
     <div className="Resources">
       <div className="filtersection">
         <div className="filtertitle">
-          <h3>Service Before Self</h3>
+          <h3>{t('Service Before Self')}</h3>
         </div>
         {!isDesktop && (
           <React.Fragment>
@@ -455,7 +457,7 @@ function Resources(props) {
                 }}
                 onClick={handleDisclaimerClick}
               >
-                Disclaimer
+                {t('Disclaimer')}
                 <ErrorOutlineOutlinedIcon
                   htmlColor="#6c757d"
                   fontSize="0.1rem"
@@ -483,17 +485,15 @@ function Resources(props) {
                     margin: '0.3rem 0rem',
                   }}
                 >
-                  <p>
+                  {/* <p>
                     We are a community sourced listing platform and are not
                     associated with any of the organisations listed below.
+                  </p> */}
+                  <p>
+                    {t('Although we verify all our listings, we request you to follow all the guidelines and take necessary precautions.')}
                   </p>
                   <p>
-                    Although we verify all our listings, we request you to
-                    follow all the guidelines and take necessary precautions.
-                  </p>
-                  <p>
-                    We encourage you to report any error or suspicious activity
-                    so we can take immediate action.
+                    {t('We encourage you to report any error or suspicious activity so we can take immediate action.')}
                   </p>
                 </h6>
               </Popover>
@@ -662,7 +662,7 @@ function Resources(props) {
                 }}
                 onClick={handleDisclaimerClick}
               >
-                Disclaimer
+                {t('Disclaimer')}
                 <ErrorOutlineOutlinedIcon
                   htmlColor="#6c757d"
                   fontSize="small"
@@ -691,16 +691,10 @@ function Resources(props) {
                   }}
                 >
                   <p>
-                    We are a community sourced listing platform and are not
-                    associated with any of the organisations listed below.
+                    {t('Although we verify all our listings, we request you to follow all the guidelines and take necessary precautions.')}
                   </p>
                   <p>
-                    Although we verify all our listings, we request you to
-                    follow all the guidelines and take necessary precautions.
-                  </p>
-                  <p>
-                    We encourage you to report any error or suspicious activity
-                    so we can take immediate action.
+                    {t('We encourage you to report any error or suspicious activity so we can take immediate action.')}
                   </p>
                 </h6>
               </Popover>
@@ -716,7 +710,7 @@ function Resources(props) {
                   id="demo-simple-select-outlined-label"
                   classes={{root: classesInputLabel.root}}
                 >
-                  Pick State
+                  {t('Pick State')}
                 </InputLabel>
                 <Select
                   native
@@ -729,7 +723,7 @@ function Resources(props) {
                   classes={{root: classesMenuItem.root}}
                 >
                   <option value="all" classes={{root: classesMenuItem.root}}>
-                    Select state
+                    {t('Select state')}
                   </option>
                   {getIndianStateOptions()}
                 </Select>
@@ -744,7 +738,7 @@ function Resources(props) {
                   id="demo-simple-select-outlined-label"
                   classes={{root: classesInputLabel.root}}
                 >
-                  City
+                  {t('City')}
                 </InputLabel>
                 <Select
                   native
@@ -757,7 +751,7 @@ function Resources(props) {
                   classes={{root: classesMenuItem.root}}
                 >
                   <option value="all" classes={{root: classesMenuItem.root}}>
-                    Select city
+                    {t('Select city')}
                   </option>
                   {getCityOptions()}
                 </Select>
@@ -772,7 +766,7 @@ function Resources(props) {
                   id="demo-simple-select-outlined-label"
                   classes={{root: classesInputLabel.root}}
                 >
-                  Services
+                  {t('Services')}
                 </InputLabel>
                 <Select
                   native
@@ -785,7 +779,7 @@ function Resources(props) {
                   classes={{root: classesMenuItem.root}}
                 >
                   <option value="all" classes={{root: classesMenuItem.root}}>
-                    Select category
+                    {t('Select category')}
                   </option>
                   {getCategoryOptions()}
                 </Select>
@@ -796,7 +790,7 @@ function Resources(props) {
                 onClick={filterTable}
                 style={!indianstate ? {pointerEvents: 'none'} : null}
               >
-                Search
+                {t('Search')}
               </button>
             </div>
             <div

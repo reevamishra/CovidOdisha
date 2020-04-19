@@ -5,6 +5,7 @@ import moment from 'moment';
 import {sliceTimeseriesFromEnd} from '../utils/common-functions';
 import {useResizeObserver} from '../utils/hooks';
 import {formatNumber} from '../utils/common-functions';
+import { useTranslation } from 'react-i18next';
 
 function TimeSeries(props) {
   const [lastDaysCount, setLastDaysCount] = useState(
@@ -375,7 +376,7 @@ function TimeSeries(props) {
     const formatedDiff = formatNumber(currentDiff);
     return currentDiff >= 0 ? `+${formatedDiff}` : formatedDiff;
   };
-
+  const { t } = useTranslation();
   return (
     <div
       className="TimeSeries-Parent fadeInUp"
@@ -384,7 +385,7 @@ function TimeSeries(props) {
       <div className="timeseries">
         <div className="svg-parent" ref={wrapperRef}>
           <div className="stats">
-            <h5 className={`${!moving ? 'title' : ''}`}>Confirmed</h5>
+            <h5 className={`${!moving ? 'title' : ''}`}>{t('Confirmed')}</h5>
             <h5 className={`${moving ? 'title' : ''}`}>{`${dateStr}`}</h5>
             <div className="stats-bottom">
               <h2>{formatNumber(datapoint[chartKey1])}</h2>
@@ -396,7 +397,7 @@ function TimeSeries(props) {
 
         <div className="svg-parent is-green">
           <div className="stats is-green">
-            <h5 className={`${!moving ? 'title' : ''}`}>Recovered</h5>
+            <h5 className={`${!moving ? 'title' : ''}`}>{t('Recovered')}</h5>
             <h5 className={`${moving ? 'title' : ''}`}>{`${dateStr}`}</h5>
             <div className="stats-bottom">
               <h2>{formatNumber(datapoint[chartKey2])}</h2>
@@ -408,7 +409,7 @@ function TimeSeries(props) {
 
         <div className="svg-parent is-gray">
           <div className="stats is-gray">
-            <h5 className={`${!moving ? 'title' : ''}`}>Deceased</h5>
+            <h5 className={`${!moving ? 'title' : ''}`}>{t('Deceased')}</h5>
             <h5 className={`${moving ? 'title' : ''}`}>{`${dateStr}`}</h5>
             <div className="stats-bottom">
               <h2>{formatNumber(datapoint[chartKey3])}</h2>
@@ -425,7 +426,7 @@ function TimeSeries(props) {
           onClick={() => setLastDaysCount(Infinity)}
           className={lastDaysCount === Infinity ? 'selected' : ''}
         >
-          All
+          {t('All')}
         </button>
         <button
           type="button"
@@ -433,7 +434,7 @@ function TimeSeries(props) {
           className={lastDaysCount === 30 ? 'selected' : ''}
           aria-label="1 month"
         >
-          1M
+          {t('Last Month')}
         </button>
         <button
           type="button"
@@ -441,7 +442,7 @@ function TimeSeries(props) {
           className={lastDaysCount === 14 ? 'selected' : ''}
           aria-label="14 days"
         >
-          14D
+          {t('Past 2 weeks')}
         </button>
       </div>
     </div>
