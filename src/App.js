@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,12 +6,14 @@ import {
   Redirect,
 } from 'react-router-dom';
 import * as Icon from 'react-feather';
+import LanguageSelector from './LanguageSelector';
 
 import './App.scss';
 
 import Home from './components/home';
 import Navbar from './components/navbar';
 import Links from './components/links';
+import symptoms from './components/symptoms';
 import FAQ from './components/faq';
 import Banner from './components/banner';
 import PatientDB from './components/patientdb';
@@ -42,9 +44,9 @@ function App() {
     //   animationDelayForNavbar: 0.4,
     // },
     // {
-    //   pageLink: '/links',
-    //   view: Links,
-    //   displayName: 'Helpful Links',
+    //   pageLink: '/symptoms',
+    //   view: symptoms,
+    //   displayName: 'Symptoms',
     //   animationDelayForNavbar: 0.4,
     // },
     // {
@@ -60,15 +62,17 @@ function App() {
       animationDelayForNavbar: 0.7,
     },
   ];
-
+  console.log(pages);
   return (
     <div className="App">
+    <Suspense fallback={(<div>Loading</div>)}>
+    <LanguageSelector />
       <Router history={history}>
         <Route
           render={({location}) => (
             <div className="Almighty-Router">
               <Navbar pages={pages} />
-              <Banner />
+              {/* <Banner /> */}
               <Route exact path="/" render={() => <Redirect to="/" />} />
               <Switch location={location}>
                 {pages.map((page, i) => {
@@ -88,13 +92,13 @@ function App() {
         />
       </Router>
 
-      <footer className="fadeInUp" style={{animationDelay: '2s'}}>
+      {/* <footer className="fadeInUp" style={{animationDelay: '2s'}}> */}
         {/* <img
           src="/icon.png"
           alt="https://www.covid19india.org | Coronavirus cases live dashboard"
         />*/}
 
-        <h5>We stand with everyone fighting on the frontlines</h5>
+        {/* <h5>Stay Hygenic. Stay Safe.</h5> */}
         {/* <div className="link">
           <a
             href="https://github.com/covid19india"
@@ -141,7 +145,8 @@ function App() {
           <Icon.MessageCircle />
           <span>Join Telegram to Collaborate!</span>
         </a> */}
-      </footer>
+      {/* </footer> */}
+      </Suspense> 
     </div>
   );
 }
