@@ -400,7 +400,7 @@ function MapExplorer({
       ref={forwardRef}
     >
       <div className="header">
-        <h1>{currentMap.name} PRESENT STATUS</h1>
+        <h1>Odisha COVID-19 Tracker</h1>
         <h6>
           {window.innerWidth <= 769 ? 'Tap' : 'Hover'} over a{' '}
           {currentMap.mapType === MAP_TYPES.STATE ? 'district' : ''}{' '}
