@@ -497,7 +497,7 @@ function Resources(props) {
                   </p>
                 </h6>
               </Popover>
-              <a
+              {/* <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSfquevp7_rdgdEoDgTdimWwTXO3B9TjFEAm3DbrMDXxCiuwuA/viewform"
                 className="button add-entry is-purple"
                 target="_blank"
@@ -514,7 +514,7 @@ function Resources(props) {
                 style={{margin: '0.2rem 0.2rem', padding: '0.5rem 0.5rem'}}
               >
                 <span>Feedback</span>
-              </a>
+              </a> */}
             </div>
             <div className="resourcefilters">
               <FormControl
@@ -527,7 +527,7 @@ function Resources(props) {
                   id="demo-simple-select-outlined-label"
                   classes={{root: classesInputLabel.root}}
                 >
-                  State/UT
+                  {t('Pick State')}
                 </InputLabel>
                 <Select
                   native
@@ -540,7 +540,7 @@ function Resources(props) {
                   classes={{root: classesMenuItem.root}}
                 >
                   <option value="all" classes={{root: classesMenuItem.root}}>
-                    All states
+                  {t('Select state')}
                   </option>
                   {getIndianStateOptions()}
                 </Select>
@@ -555,7 +555,7 @@ function Resources(props) {
                   id="demo-simple-select-outlined-label"
                   classes={{root: classesInputLabel.root}}
                 >
-                  City
+                  {t('City')}
                 </InputLabel>
                 <Select
                   native
@@ -568,7 +568,7 @@ function Resources(props) {
                   classes={{root: classesMenuItem.root}}
                 >
                   <option value="all" classes={{root: classesMenuItem.root}}>
-                    All Cities
+                  {t('Select city')}
                   </option>
                   {getCityOptions()}
                 </Select>
@@ -583,7 +583,7 @@ function Resources(props) {
                   id="demo-simple-select-outlined-label"
                   classes={{root: classesInputLabel.root}}
                 >
-                  Services
+                  {t('Services')}
                 </InputLabel>
                 <Select
                   native
@@ -596,7 +596,7 @@ function Resources(props) {
                   classes={{root: classesMenuItem.root}}
                 >
                   <option value="all" classes={{root: classesMenuItem.root}}>
-                    All Categories
+                  {t('Select category')}
                   </option>
                   {getCategoryOptions()}
                 </Select>
@@ -622,7 +622,7 @@ function Resources(props) {
                     justifyContent: 'center',
                   }}
                 >
-                  Search
+                  {t('Search')}
                 </button>
                 {/* <button
                   onClick={openSharingTray}
