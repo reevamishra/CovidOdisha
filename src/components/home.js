@@ -349,7 +349,7 @@ function Home(props) {
           <Icon.GitHub />
           <span>{t('Open Sourced on GitHub')}</span>
         </a>
-      <h4>{t('Built by Reeva')}</h4>
+      {/* <h4>{t('Built by Reeva')}</h4> */}
       <a
           href="https://twitter.com/reeva_mishra"
           target="_blank"
@@ -357,7 +357,7 @@ function Home(props) {
           className="button twitter"
           style={{justifyContent: 'center'}}
         >
-          <span>{t('Reeva')}&nbsp;&nbsp;</span>
+          <span>{t('Built by Reeva')}&nbsp;&nbsp;</span>
           <Icon.Twitter />
         </a>
       <h6>{t('Stay Hygenic. Stay Safe.')}</h6>
