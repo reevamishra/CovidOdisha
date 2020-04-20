@@ -339,7 +339,28 @@ function Home(props) {
       {/* </div> */}
       
       <footer className="fadeInUp" style={{animationDelay: '2s'}}>
-      <h5>{t('Stay Hygenic. Stay Safe.')}</h5>
+        <h4>{t('Regional Covid-19 Dashboard for Odisha based on covid19india')}</h4>
+        <a
+          href="https://github.com/covid19india/covid19india-react"
+          className="button github"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon.GitHub />
+          <span>{t('Open Sourced on GitHub')}</span>
+        </a>
+      <h4>{t('Built by Reeva')}</h4>
+      <a
+          href="https://twitter.com/reeva_mishra"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="button twitter"
+          style={{justifyContent: 'center'}}
+        >
+          <span>{t('Reeva')}&nbsp;&nbsp;</span>
+          <Icon.Twitter />
+        </a>
+      <h6>{t('Stay Hygenic. Stay Safe.')}</h6>
       </footer>
 
     </React.Fragment>
