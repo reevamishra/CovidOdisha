@@ -145,7 +145,7 @@ function Row(props) {
         >
           <span className="deltas" style={{color: '#28a745'}}>
             {state.deltarecovered > 0 && <Icon.ArrowUp />}
-            {state.deltarecovered > 0 ? `${state.deltarecovered}` : ''}
+            {state.deltarecovered > 0 ? `${t(state.deltarecovered)}` : ''}
           </span>
           <span className="table__count-text">
             {parseInt(state.recovered) === 0
@@ -158,7 +158,7 @@ function Row(props) {
         >
           <span className="deltas" style={{color: '#6c757d'}}>
             {state.deltadeaths > 0 && <Icon.ArrowUp />}
-            {state.deltadeaths > 0 ? `${state.deltadeaths}` : ''}
+            {state.deltadeaths > 0 ? `${t(state.deltadeaths)}` : ''}
           </span>
           <span className="table__count-text">
             {parseInt(state.deaths) === 0 ? '-' : t(formatNumber(state.deaths)[0])+t(formatNumber(state.deaths)[1])}
@@ -277,9 +277,9 @@ function Row(props) {
                       {sortedDistricts[district].delta.confirmed > 0 && (
                         <Icon.ArrowUp />
                       )}
-                      {sortedDistricts[district].delta.confirmed > 0
+                      {t(sortedDistricts[district].delta.confirmed > 0
                         ? `${sortedDistricts[district].delta.confirmed}`
-                        : ''}
+                        : '')}
                     </span>
                     <span className="table__count-text">
                       {t(formatNumber(sortedDistricts[district].confirmed)[0])+t(formatNumber(sortedDistricts[district].confirmed)[1])
