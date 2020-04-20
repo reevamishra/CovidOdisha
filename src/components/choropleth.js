@@ -102,17 +102,16 @@ function ChoroplethMap({
           changeMap(d.properties[propertyField], mapMeta.mapType);
         })
         .style('cursor', 'pointer')
-        .append('title')
-        .text(function (d) {
-          const value = mapData[d.properties[propertyField]] || 0;
-          return (
-            Number(
-              parseFloat(100 * (value / (statistic.total || 0.001))).toFixed(2)
-            ).toString() +
-            '% from ' +
-            toTitleCase(d.properties[propertyField])
-          );
-        });
+        .append('title');
+        // .text(function (d) {
+        //   const value = mapData[d.properties[propertyField]] || 0;
+        //   return (
+        //     toTitleCase(d.properties[propertyField]) + ":" + Number(
+        //       parseFloat(100 * (value / (statistic.total || 0.001))).toFixed(2)
+        //     ).toString()             
+        //   );
+        // }
+        // );
 
       svg
         .append('path')
