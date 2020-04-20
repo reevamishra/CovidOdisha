@@ -121,7 +121,7 @@ function Row(props) {
         <td>
           <span className="deltas" style={{color: '#ff073a'}}>
             {state.deltaconfirmed > 0 && <Icon.ArrowUp />}
-            {state.deltaconfirmed > 0 ? `${t(state.deltaconfirmed)}` : ''}
+            {state.deltaconfirmed > 0 ? `${t(state.deltaconfirmed[0])+t(state.deltaconfirmed[1])}` : ''}
           </span>
           <span className="table__count-text">
             {parseInt(state.confirmed) === 0
