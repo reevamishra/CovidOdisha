@@ -543,9 +543,9 @@ function MapExplorer({
 
         {currentMap.mapType === MAP_TYPES.STATE &&
         currentMapData.Unknown > 0 ? (
-          <h4 className="unknown">
+          <h5 className="unknown">
             {t('Districts unknown for')}{' '} {currentMapData.Unknown}{' '}{t('people')}
-          </h4>
+          </h5>
         ) : null}
 
         {/* {currentMap.mapType === MAP_TYPES.STATE ? (

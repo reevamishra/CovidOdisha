@@ -185,7 +185,7 @@ function ChoroplethMap({
       .cells(cells)
       .titleWidth(3)
       .labels(label)
-      .title('Confirmed Cases')
+      .title('')
       .orient('vertical')
       .scale(color);
 
