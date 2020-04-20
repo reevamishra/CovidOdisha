@@ -308,7 +308,7 @@ function Row(props) {
                   <Icon.ArrowUp />
                 )}
                 {sortedDistricts['Unknown'].delta.confirmed > 0
-                  ? `${sortedDistricts['Unknown'].delta.confirmed}`
+                  ? `${t(sortedDistricts['Unknown'].delta.confirmed)}`
                   : ''}
               </span>
               <span className="table__count-text">
