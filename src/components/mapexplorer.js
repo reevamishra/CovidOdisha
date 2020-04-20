@@ -459,7 +459,8 @@ function MapExplorer({
             <div className="stats-bottom">
               <h1>{t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[0])+t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[1])
                   +t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[2])+t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[3])
-                  +t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[4])}</h1>
+                  +t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[4])+t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[5])
+                  +t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[6])}</h1>
             </div>
             <h6 className="timestamp">
               {!isNaN(new Date(testObj?.updatedon))
@@ -485,7 +486,8 @@ function MapExplorer({
             <div className="stats-bottom">
               <h1>{t(formatNumber(testObj?.totaltested)[0])+t(formatNumber(testObj?.totaltested)[1])
                   +t(formatNumber(testObj?.totaltested)[2])+t(formatNumber(testObj?.totaltested)[3])
-                  +t(formatNumber(testObj?.totaltested)[4])}</h1>
+                  +t(formatNumber(testObj?.totaltested)[4])+t(formatNumber(testObj?.totaltested)[5])
+                  +t(formatNumber(testObj?.totaltested)[6])}</h1>
             </div>
             <h6 className="timestamp">
               {!isNaN(new Date(testObj?.updatedon))
