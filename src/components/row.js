@@ -336,7 +336,7 @@ function Row(props) {
               fontWeight: 600,
             }}
           >
-            Awaiting patient-level details from State Bulletin
+            {t('Awaiting patient-level details from State Bulletin')}
           </div>
         </React.Fragment>
       )}
