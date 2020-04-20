@@ -341,7 +341,7 @@ function Home(props) {
       <footer className="fadeInUp" style={{animationDelay: '2s'}}>
         <h4>{t('Regional Covid-19 Dashboard for Odisha based on covid19india')}</h4>
         <a
-          href="https://github.com/covid19india/covid19india-react"
+          href="https://github.com/reevamishra/CovidOdisha"
           className="button github"
           target="_blank"
           rel="noopener noreferrer"

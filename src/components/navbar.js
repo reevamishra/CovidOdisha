@@ -25,7 +25,7 @@ function Navbar(props) {
         <Link to="/">
           <img
             className="fadeInUp logo"
-            alt="India COVID-19 Tracker"
+            alt="Odisha COVID-19 Tracker"
             src="/icon.png"
             style={{
               animationDelay: '0.0s',
