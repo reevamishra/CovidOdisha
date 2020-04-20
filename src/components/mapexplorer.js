@@ -544,7 +544,7 @@ function MapExplorer({
         {currentMap.mapType === MAP_TYPES.STATE &&
         currentMapData.Unknown > 0 ? (
           <h5 className="unknown">
-            {t('Districts unknown for')}{' '} {currentMapData.Unknown}{' '}{t('people')}
+            {t('Districts unknown for')}{' '} {t(currentMapData.Unknown)}{' '}{t('people')}
           </h5>
         ) : null}
 
