@@ -126,7 +126,7 @@ function Row(props) {
           <span className="table__count-text">
             {parseInt(state.confirmed) === 0
               ? '-'
-              : t(formatNumber(state.confirmed)[0])+t(formatNumber(state.confirmed)[1])}
+              : t(formatNumber(state.confirmed)[0])+t(formatNumber(state.confirmed)[1])+t(formatNumber(state.confirmed)[2])}
           </span>
         </td>
         <td
@@ -136,7 +136,7 @@ function Row(props) {
             {!state.delta.active==0 && <Icon.ArrowUp/>}
             {state.delta.active>0 ? `${state.delta.active}` : ''}
           </span>*/}
-          {parseInt(state.active) === 0 ? '-' : t(formatNumber(state.active)[0])+t(formatNumber(state.active)[1])}
+          {parseInt(state.active) === 0 ? '-' : t(formatNumber(state.active)[0])+t(formatNumber(state.active)[1])+t(formatNumber(state.active)[2])}
         </td>
         <td
           style={{
@@ -150,7 +150,7 @@ function Row(props) {
           <span className="table__count-text">
             {parseInt(state.recovered) === 0
               ? '-'
-              : t(formatNumber(state.recovered)[0])+t(formatNumber(state.recovered)[1])}
+              : t(formatNumber(state.recovered)[0])+t(formatNumber(state.recovered)[1])+t(formatNumber(state.recovered)[2])}
           </span>
         </td>
         <td
@@ -161,7 +161,7 @@ function Row(props) {
             {state.deltadeaths > 0 ? `${t(state.deltadeaths)}` : ''}
           </span>
           <span className="table__count-text">
-            {parseInt(state.deaths) === 0 ? '-' : t(formatNumber(state.deaths)[0])+t(formatNumber(state.deaths)[1])}
+            {parseInt(state.deaths) === 0 ? '-' : t(formatNumber(state.deaths)[0])+t(formatNumber(state.deaths)[1])+t(formatNumber(state.deaths)[2])}
           </span>
         </td>
       </tr>
