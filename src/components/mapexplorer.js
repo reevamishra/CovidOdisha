@@ -406,7 +406,7 @@ function MapExplorer({
           {t(window.innerWidth <= 769 ? 'Tap' : 'Hover')} {t('over a')}{' '}
           {t(currentMap.mapType === MAP_TYPES.STATE ? 'district' : '')}{' '}
           {t('for more details')}&nbsp;
-          <a type="submit" class="buttonclick" href="https://covidodisha.github.io/fastpages/2020/04/24/Realtime-Rt-mcmc.html#COVID-19-$R_t$-for-Indian-States" target="_blank">COVID-19 Rt</a>
+          <a type="submit" class="buttonclick" href="https://covidodisha.github.io/fastpages/" target="_blank">{t('COVID-19 Rt')}</a>
         </h6>
       </div>
 
