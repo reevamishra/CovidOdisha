@@ -403,9 +403,9 @@ function MapExplorer({
     if (http.status != 404)
         return hreflink;
     else {
-        //newDate = newDate.setDate(newDate.getDate() - 1);
-        return hreflink="https://covidodisha.github.io/fastpages/2020"+'/'+("0" + (newDate.getMonth() + 1)).slice(-2)+'/'+("0" + (newDate.getDate()-1)).slice(-2)+'/Realtime-Rt-mcmc.html#COVID-19-$R_t$-for-Indian-States';
-        // return UrlExists(hreflink);
+        newDate.setDate(newDate.getDate() - 1);
+        hreflink="https://covidodisha.github.io/fastpages/2020"+'/'+("0" + (newDate.getMonth() + 1)).slice(-2)+'/'+("0" + newDate.getDate()).slice(-2)+'/Realtime-Rt-mcmc.html#COVID-19-$R_t$-for-Indian-States';
+        return UrlExists(hreflink);
     }        
 }
   return (
