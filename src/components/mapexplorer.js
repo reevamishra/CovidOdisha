@@ -537,9 +537,9 @@ function MapExplorer({
         {currentMap.mapType === MAP_TYPES.STATE ? (
           <h4 className="district-confirmed">
             {t('Confirmed cases')}:{' '}
-            {t(currentMapData[currentHoveredRegion.name]
-              ? currentMapData[currentHoveredRegion.name]
-              : 0)}
+            {(currentMapData[currentHoveredRegion.name]
+              ? currentMapData[currentHoveredRegion.name].toString().length == 1 ? t(currentMapData[currentHoveredRegion.name].toString()) : t(currentMapData[currentHoveredRegion.name].toString()[0])+t(currentMapData[currentHoveredRegion.name].toString()[1])
+              : t('0'))}
           </h4>
         ) : null}
 
