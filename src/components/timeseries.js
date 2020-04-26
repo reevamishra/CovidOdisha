@@ -360,9 +360,9 @@ function TimeSeries(props) {
 
   const focusDate = moment(datapoint.date);
   let dateStr = focusDate.format('DD MMMM');
-  dateStr += focusDate.isSame(moment().subtract(1, 'days'), 'day')
-    ? ' Yesterday'
-    : '';
+  // dateStr += focusDate.isSame(moment().subtract(1, 'days'), 'day')
+  //   ? ' Yesterday'
+  //   : '';
 
   const chartKey1 = chartType === 1 ? 'totalconfirmed' : 'dailyconfirmed';
   const chartKey2 = chartType === 1 ? 'totalrecovered' : 'dailyrecovered';
@@ -386,10 +386,11 @@ function TimeSeries(props) {
         <div className="svg-parent" ref={wrapperRef}>
           <div className="stats">
             <h5 className={`${!moving ? 'title' : ''}`}>{t('Confirmed')}</h5>
-            <h5 className={`${moving ? 'title' : ''}`}>{`${dateStr}`}</h5>
+            <h5 className={`${moving ? 'title' : ''}`}>{`${t(dateStr[0])+t(dateStr[1])+dateStr[2]+t(dateStr[3]+dateStr[4]+dateStr[5])}`}</h5>
             <div className="stats-bottom">
-              <h2>{formatNumber(datapoint[chartKey1])}</h2>
-              <h6>{currentStatusCount(chartKey1)}</h6>
+              <h2>{t(formatNumber(datapoint[chartKey1]).toString()[0])+t(formatNumber(datapoint[chartKey1]).toString()[1])
+              +t(formatNumber(datapoint[chartKey1]).toString()[2])+t(formatNumber(datapoint[chartKey1]).toString()[3])}</h2>
+              <h6>{t(currentStatusCount(chartKey1)[0])+t(currentStatusCount(chartKey1)[1])+t(currentStatusCount(chartKey1)[2])}</h6>
             </div>
           </div>
           <svg ref={svgRef1} preserveAspectRatio="xMidYMid meet" />
@@ -398,10 +399,11 @@ function TimeSeries(props) {
         <div className="svg-parent is-green">
           <div className="stats is-green">
             <h5 className={`${!moving ? 'title' : ''}`}>{t('Recovered')}</h5>
-            <h5 className={`${moving ? 'title' : ''}`}>{`${dateStr}`}</h5>
+            <h5 className={`${moving ? 'title' : ''}`}>{`${t(dateStr[0])+t(dateStr[1])+dateStr[2]+t(dateStr[3]+dateStr[4]+dateStr[5])}`}</h5>
             <div className="stats-bottom">
-              <h2>{formatNumber(datapoint[chartKey2])}</h2>
-              <h6>{currentStatusCount(chartKey2)}</h6>
+              <h2>{t(formatNumber(datapoint[chartKey2]).toString()[0])+t(formatNumber(datapoint[chartKey2]).toString()[1])
+              +t(formatNumber(datapoint[chartKey2]).toString()[2])+t(formatNumber(datapoint[chartKey2]).toString()[3])}</h2>
+              <h6>{t(currentStatusCount(chartKey2)[0])+t(currentStatusCount(chartKey2)[1])+t(currentStatusCount(chartKey2)[2])}</h6>
             </div>
           </div>
           <svg ref={svgRef2} preserveAspectRatio="xMidYMid meet" />
@@ -410,10 +412,11 @@ function TimeSeries(props) {
         <div className="svg-parent is-gray">
           <div className="stats is-gray">
             <h5 className={`${!moving ? 'title' : ''}`}>{t('Deceased')}</h5>
-            <h5 className={`${moving ? 'title' : ''}`}>{`${dateStr}`}</h5>
+            <h5 className={`${moving ? 'title' : ''}`}>{`${t(dateStr[0])+t(dateStr[1])+dateStr[2]+t(dateStr[3]+dateStr[4]+dateStr[5])}`}</h5>
             <div className="stats-bottom">
-              <h2>{formatNumber(datapoint[chartKey3])}</h2>
-              <h6>{currentStatusCount(chartKey3)}</h6>
+              <h2>{t(formatNumber(datapoint[chartKey3]).toString()[0])+t(formatNumber(datapoint[chartKey3]).toString()[1])
+              +t(formatNumber(datapoint[chartKey3]).toString()[2])+t(formatNumber(datapoint[chartKey3]).toString()[3])}</h2>
+              <h6>{t(currentStatusCount(chartKey3)[0])+t(currentStatusCount(chartKey3)[1])+t(currentStatusCount(chartKey3)[2])}</h6>
             </div>
           </div>
           <svg ref={svgRef3} preserveAspectRatio="xMidYMid meet" />
