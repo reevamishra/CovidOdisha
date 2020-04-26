@@ -6,7 +6,6 @@ import {formatDistance, format, parse} from 'date-fns';
 import {formatNumber} from '../utils/common-functions';
 import * as Icon from 'react-feather';
 import { useTranslation } from 'react-i18next';
-
 const mapMeta = {
   // India: {
   //   name: 'India',
@@ -394,6 +393,19 @@ function MapExplorer({
     );
   }, [panelRegion, stateTestData, testObj]);
   const { t } = useTranslation();
+  let newDate = new Date();
+  let hreflink = "https://covidodisha.github.io/fastpages/2020"+'/'+("0" + (newDate.getMonth() + 1)).slice(-2)+'/'+("0" + newDate.getDate()).slice(-2)+'/Realtime-Rt-mcmc.html';
+  
+  function UrlExists(hreflink) {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', hreflink, false);
+    http.send();
+    if (http.status != 404)
+        return hreflink;
+    else
+        hreflink="https://covidodisha.github.io/fastpages/2020"+'/'+("0" + (newDate.getMonth() + 1)).slice(-2)+'/'+("0" + (newDate.getDate()-1)).slice(-2)+'/Realtime-Rt-mcmc.html';
+        return UrlExists(hreflink);
+}
   return (
     <div
       className="MapExplorer fadeInUp"
@@ -406,7 +418,7 @@ function MapExplorer({
           {t(window.innerWidth <= 769 ? 'Tap' : 'Hover')} {t('over a')}{' '}
           {t(currentMap.mapType === MAP_TYPES.STATE ? 'district' : '')}{' '}
           {t('for more details')}&nbsp;
-          <a type="submit" class="buttonclick" href="https://covidodisha.github.io/fastpages/" target="_blank">{t('COVID-19 Rt')}</a>
+          <a type="submit" class="buttonclick" href={UrlExists(hreflink)} target="_blank">{t('COVID-19 Rt')}</a>
         </h6>
       </div>
 
