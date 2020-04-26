@@ -394,7 +394,7 @@ function MapExplorer({
   }, [panelRegion, stateTestData, testObj]);
   const { t } = useTranslation();
   let newDate = new Date();
-  let hreflink = "https://covidodisha.github.io/fastpages/2020"+'/'+("0" + (newDate.getMonth() + 1)).slice(-2)+'/'+("0" + newDate.getDate()).slice(-2)+'/Realtime-Rt-mcmc.html';
+  let hreflink = "https://covidodisha.github.io/fastpages/2020"+'/'+("0" + (newDate.getMonth() + 1)).slice(-2)+'/'+("0" + newDate.getDate()).slice(-2)+'/Realtime-Rt-mcmc.html#COVID-19-$R_t$-for-Indian-States';
   
   function UrlExists(hreflink) {
     var http = new XMLHttpRequest();
@@ -402,9 +402,11 @@ function MapExplorer({
     http.send();
     if (http.status != 404)
         return hreflink;
-    else
-        hreflink="https://covidodisha.github.io/fastpages/2020"+'/'+("0" + (newDate.getMonth() + 1)).slice(-2)+'/'+("0" + (newDate.getDate()-1)).slice(-2)+'/Realtime-Rt-mcmc.html';
-        return UrlExists(hreflink);
+    else {
+        //newDate = newDate.setDate(newDate.getDate() - 1);
+        return hreflink="https://covidodisha.github.io/fastpages/2020"+'/'+("0" + (newDate.getMonth() + 1)).slice(-2)+'/'+("0" + (newDate.getDate()-1)).slice(-2)+'/Realtime-Rt-mcmc.html#COVID-19-$R_t$-for-Indian-States';
+        // return UrlExists(hreflink);
+    }        
 }
   return (
     <div
