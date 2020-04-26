@@ -214,7 +214,12 @@ function Home(props) {
                 <h6 style={{color: '#28a745', fontWeight: 600}}>
                   {isNaN(Date.parse(formatDate(lastUpdated)))
                     ? ''
-                    : formatDateAbsolute(lastUpdated)}
+                    : t(formatDateAbsolute(lastUpdated).toString()[0])+t(formatDateAbsolute(lastUpdated).toString()[0])
+                    +t(formatDateAbsolute(lastUpdated).toString()[2])
+                    +t(formatDateAbsolute(lastUpdated).toString()[3]+formatDateAbsolute(lastUpdated).toString()[4]+formatDateAbsolute(lastUpdated).toString()[5])
+                    +t(formatDateAbsolute(lastUpdated).toString()[6])+t(formatDateAbsolute(lastUpdated).toString()[7])+t(formatDateAbsolute(lastUpdated).toString()[8])
+                    +t(formatDateAbsolute(lastUpdated).toString()[9])+t(formatDateAbsolute(lastUpdated).toString()[10])+":"
+                    +t(formatDateAbsolute(lastUpdated).toString()[11])+t(formatDateAbsolute(lastUpdated).toString()[12])}
                 </h6>
               </div>
             </div>
