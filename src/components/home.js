@@ -97,7 +97,7 @@ function Home(props) {
     <React.Fragment>
       <div className="Home">
         
-        <div className="home-right" style={{animationDelay: '.1s'}}>
+        <div className="home-right" style={{animationDelay: '0s'}}>
           {fetched && (
             <React.Fragment>
               <MapExplorer
@@ -197,14 +197,14 @@ function Home(props) {
           )}
         </div>
         
-        <div className="home-left" style={{animationDelay: '.2s'}}>
+        <div className="home-left" style={{animationDelay: '0s'}}>
           <div className="header fadeInUp">
             <div className="header-mid">
               <div className="titles">
                 {/* <h1>Odisha COVID-19 Tracker</h1> */}
                 {/* <h6 style={{fontWeight: 600}}>A Crowdsourced Initiative</h6> */}
               </div>
-              <div className="last-update">
+              {/* <div className="last-update">
                 <h6>{t('Last Updated')}</h6>
                 <h6 style={{color: '#28a745', fontWeight: 600}}>
                   {isNaN(Date.parse(formatDate(lastUpdated)))
@@ -221,7 +221,7 @@ function Home(props) {
                     +t(formatDateAbsolute(lastUpdated).toString()[9])+t(formatDateAbsolute(lastUpdated).toString()[10])+":"
                     +t(formatDateAbsolute(lastUpdated).toString()[11])+t(formatDateAbsolute(lastUpdated).toString()[12])}
                 </h6>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -343,7 +343,7 @@ function Home(props) {
         {/* <div className="home-left"></div> */}
       {/* </div> */}
       
-      <footer className="fadeInUp" style={{animationDelay: '2s'}}>
+      <footer className="fadeInUp" style={{animationDelay: '3s'}}>
         <h4>{t('Regional Covid-19 Dashboard for Odisha based on covid19india')}</h4>
         <a
           href="https://github.com/reevamishra/CovidOdisha"
