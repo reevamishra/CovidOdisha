@@ -479,10 +479,25 @@ function MapExplorer({
             </div>
             <h6 className="timestamp">
               {!isNaN(new Date(testObj?.updatedon))
-                ? `As of ${format(
+                ? t("Last Updated") + " " + `${t(format(
                     parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
                     'dd MMM'
-                  )}`
+                  )[0])+t(format(
+                    parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
+                    'dd MMM'
+                  )[1])+t(format(
+                    parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
+                    'dd MMM'
+                  )[2])+t(format(
+                    parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
+                    'dd MMM'
+                  )[3]+format(
+                    parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
+                    'dd MMM'
+                  )[4]+format(
+                    parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
+                    'dd MMM'
+                  )[5])}`
                 : ''}
             </h6>
             {/* {testObj?.totaltested?.length > 1 && (
@@ -506,10 +521,25 @@ function MapExplorer({
             </div>
             <h6 className="timestamp">
               {!isNaN(new Date(testObj?.updatedon))
-                ? `As of ${format(
-                    parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
-                    'dd MMM'
-                  )}`
+                ? t("Last Updated") + " " + `${t(format(
+                  parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
+                  'dd MMM'
+                )[0])+t(format(
+                  parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
+                  'dd MMM'
+                )[1])+t(format(
+                  parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
+                  'dd MMM'
+                )[2])+t(format(
+                  parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
+                  'dd MMM'
+                )[3]+format(
+                  parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
+                  'dd MMM'
+                )[4]+format(
+                  parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
+                  'dd MMM'
+                )[5])}`
                 : ''}
             </h6>
             {testObj?.totaltested?.length > 1 && (
