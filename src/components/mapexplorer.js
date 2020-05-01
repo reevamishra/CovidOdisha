@@ -477,7 +477,7 @@ function MapExplorer({
                   +t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[4])+t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[5])
                   +t(formatNumber(testObj?.totaltested - panelRegion.confirmed)[6])}</h1>
             </div>
-            <h6 className="timestamp">
+            {/* <h6 className="timestamp">
               {!isNaN(new Date(testObj?.updatedon))
                 ? t("Last Updated") + " " + `${t(format(
                     parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
@@ -499,7 +499,7 @@ function MapExplorer({
                     'dd MMM'
                   )[5])}`
                 : ''}
-            </h6>
+            </h6> */}
             {/* {testObj?.totaltested?.length > 1 && (
               <a href={testObj.source} target="_noblank">
                 <Icon.Link />
@@ -519,7 +519,7 @@ function MapExplorer({
                   +t(formatNumber(testObj?.totaltested)[4])+t(formatNumber(testObj?.totaltested)[5])
                   +t(formatNumber(testObj?.totaltested)[6])}</h1>
             </div>
-            <h6 className="timestamp">
+            {/* <h6 className="timestamp">
               {!isNaN(new Date(testObj?.updatedon))
                 ? t("Last Updated") + " " + `${t(format(
                   parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()),
@@ -541,7 +541,7 @@ function MapExplorer({
                   'dd MMM'
                 )[5])}`
                 : ''}
-            </h6>
+            </h6> */}
             {testObj?.totaltested?.length > 1 && (
               <a href={testObj.source} target="_noblank">
                 <Icon.Link />
