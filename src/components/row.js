@@ -248,6 +248,84 @@ function Row(props) {
             </div>
           </div>
         </td>
+        <td onClick={(e) => handleSort('Active')}>
+          <div className="heading-content">
+            <abbr
+              className={`${window.innerWidth <= 769 ? 'is-cherry' : ''}`}
+              title="Active"
+            >
+              {t(window.innerWidth <= 769
+                ? window.innerWidth <= 375
+                  ? 'A'
+                  : 'Actv'
+                : 'Active')}
+            </abbr>
+            <div
+              style={{
+                display:
+                  sortData.sortColumn === 'Active' ? 'initial' : 'none',
+              }}
+            >
+              {sortData.isAscending ? (
+                <div className="arrow-up" />
+              ) : (
+                <div className="arrow-down" />
+              )}
+            </div>
+          </div>
+        </td>
+        <td onClick={(e) => handleSort('Recovered')}>
+          <div className="heading-content">
+            <abbr
+              className={`${window.innerWidth <= 769 ? 'is-cherry' : ''}`}
+              title="Recovered"
+            >
+              {t(window.innerWidth <= 769
+                ? window.innerWidth <= 375
+                  ? 'R'
+                  : 'Rcvrd'
+                : 'Recovered')}
+            </abbr>
+            <div
+              style={{
+                display:
+                  sortData.sortColumn === 'Recovered' ? 'initial' : 'none',
+              }}
+            >
+              {sortData.isAscending ? (
+                <div className="arrow-up" />
+              ) : (
+                <div className="arrow-down" />
+              )}
+            </div>
+          </div>
+        </td>
+        <td onClick={(e) => handleSort('Deceased')}>
+          <div className="heading-content">
+            <abbr
+              className={`${window.innerWidth <= 769 ? 'is-cherry' : ''}`}
+              title="Deceased"
+            >
+              {t(window.innerWidth <= 769
+                ? window.innerWidth <= 375
+                  ? 'D'
+                  : 'Dcsd'
+                : 'Deceased')}
+            </abbr>
+            <div
+              style={{
+                display:
+                  sortData.sortColumn === 'Deceased' ? 'initial' : 'none',
+              }}
+            >
+              {sortData.isAscending ? (
+                <div className="arrow-up" />
+              ) : (
+                <div className="arrow-down" />
+              )}
+            </div>
+          </div>
+        </td>
       </tr>
 
       {sortedDistricts &&
@@ -270,7 +348,7 @@ function Row(props) {
                   onTouchStart={() =>
                     props.onHighlightDistrict?.(district, state, props.index)
                   }
-                >
+                  >
                   <td style={{fontWeight: 600}}>{t(district)}</td>
                   <td>
                     <span className="deltas" style={{color: '#ff073a'}}>
@@ -284,6 +362,48 @@ function Row(props) {
                     <span className="table__count-text">
                       {t(formatNumber(sortedDistricts[district].confirmed)[0])+t(formatNumber(sortedDistricts[district].confirmed)[1])
                       +t(formatNumber(sortedDistricts[district].confirmed)[2])+t(formatNumber(sortedDistricts[district].confirmed)[3])}
+                    </span>
+                  </td>
+                  <td>
+                    <span className="deltas" style={{color: '#ff073a'}}>
+                      {sortedDistricts[district].delta.active > 0 && (
+                        <Icon.ArrowUp />
+                      )}
+                      {t(sortedDistricts[district].delta.active > 0
+                        ? `${sortedDistricts[district].delta.active}`
+                        : '')}
+                    </span>
+                    <span className="table__count-text">
+                      {t(formatNumber(sortedDistricts[district].active)[0])+t(formatNumber(sortedDistricts[district].active)[1])
+                      +t(formatNumber(sortedDistricts[district].active)[2])+t(formatNumber(sortedDistricts[district].active)[3])}
+                    </span>
+                  </td>
+                  <td>
+                    <span className="deltas" style={{color: '#28a745'}}>
+                      {sortedDistricts[district].delta.recovered > 0 && (
+                        <Icon.ArrowUp />
+                      )}
+                      {t(sortedDistricts[district].delta.recovered > 0
+                        ? `${sortedDistricts[district].delta.recovered}`
+                        : '')}
+                    </span>
+                    <span className="table__count-text">
+                      {t(formatNumber(sortedDistricts[district].recovered)[0])+t(formatNumber(sortedDistricts[district].recovered)[1])
+                      +t(formatNumber(sortedDistricts[district].recovered)[2])+t(formatNumber(sortedDistricts[district].recovered)[3])}
+                    </span>
+                  </td>
+                  <td>
+                    <span className="deltas" style={{color: '#ff073a'}}>
+                      {sortedDistricts[district].delta.deaths > 0 && (
+                        <Icon.ArrowUp />
+                      )}
+                      {t(sortedDistricts[district].delta.deaths > 0
+                        ? `${sortedDistricts[district].delta.deaths}`
+                        : '')}
+                    </span>
+                    <span className="table__count-text">
+                      {t(formatNumber(sortedDistricts[district].deceased)[0])+t(formatNumber(sortedDistricts[district].deceased)[1])
+                      +t(formatNumber(sortedDistricts[district].deceased)[2])+t(formatNumber(sortedDistricts[district].deceased)[3])}
                     </span>
                   </td>
                 </tr>
