@@ -262,6 +262,7 @@ function MapExplorer({
   const [currentHoveredRegion, setCurrentHoveredRegion] = useState(
     getRegionFromState(states[0])
   );
+  console.log(currentHoveredRegion);
   const [testObj, setTestObj] = useState({});
   const [currentMap, setCurrentMap] = useState(mapMeta.Odisha);
   const [statistic, currentMapData] = useMemo(() => {
@@ -583,7 +584,10 @@ function MapExplorer({
           <h4 className="district-confirmed">
             {t('Confirmed cases')}:{' '}
             {(currentMapData[currentHoveredRegion.name]
-              ? currentMapData[currentHoveredRegion.name].toString().length == 1 ? t(currentMapData[currentHoveredRegion.name].toString()) : t(currentMapData[currentHoveredRegion.name].toString()[0])+t(currentMapData[currentHoveredRegion.name].toString()[1])
+              ? currentMapData[currentHoveredRegion.name].toString().length == 1 ? t(currentMapData[currentHoveredRegion.name].toString()) : t(currentMapData[currentHoveredRegion.name].toString()[0])+t(currentMapData[currentHoveredRegion.name].toString()[1])+t(currentMapData[currentHoveredRegion.name].toString()[2])
+              : currentHoveredRegion.name == "Jajapur" ? (currentMapData["Jajpur"].toString().length == 1 ? t(currentMapData["Jajpur"].toString()[0]) : t(currentMapData["Jajpur"].toString()[0])+t(currentMapData["Jajpur"].toString()[1])+t(currentMapData["Jajpur"].toString()[2])) 
+              : currentHoveredRegion.name == "Baleshwar" ? (currentMapData["Balasore"].toString().length == 1 ? t(currentMapData["Balasore"].toString()[0]) : t(currentMapData["Balasore"].toString()[0])+t(currentMapData["Balasore"].toString()[1])+t(currentMapData["Balasore"].toString()[2]))
+              : currentHoveredRegion.name == "Debagarh" ? (currentMapData["Deogarh"].toString().length == 1 ? t(currentMapData["Deogarh"].toString()[0]) : t(currentMapData["Deogarh"].toString()[0])+t(currentMapData["Deogarh"].toString()[1])+t(currentMapData["Deogarh"].toString()[2]))
               : t('0'))}
           </h4>
         ) : null}
