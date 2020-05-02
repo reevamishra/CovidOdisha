@@ -70,7 +70,11 @@ function ChoroplethMap({
         .append('path')
         .attr('class', 'path-region')
         .attr('fill', function (d) {
-          const n = parseInt(mapData[d.properties[propertyField]]) || 0;
+          const area = 
+                d.properties[propertyField] == "Jajapur" ? "Jajpur" :
+                d.properties[propertyField] == "Baleshwar" ? "Balasore" :
+                d.properties[propertyField] == "Debagarh" ? "Deogarh" : d.properties[propertyField];
+          const n = parseInt(mapData[area]) || 0;
           const color =
             n === 0
               ? '#ffffff'
