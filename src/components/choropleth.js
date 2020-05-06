@@ -72,6 +72,7 @@ function ChoroplethMap({
         .attr('fill', function (d) {
           const area = 
                 d.properties[propertyField] == "Jajapur" ? "Jajpur" :
+                d.properties[propertyField] == "Jagatsinghapur" ? "Jagatsinghpur" :
                 d.properties[propertyField] == "Baleshwar" ? "Balasore" :
                 d.properties[propertyField] == "Debagarh" ? "Deogarh" : d.properties[propertyField];
           const n = parseInt(mapData[area]) || 0;
