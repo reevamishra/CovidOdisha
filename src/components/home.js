@@ -77,6 +77,10 @@ function Home(props) {
   };
   const onHighlightDistrict = (district, state, index) => {
     if (!state && !index && !district) return setRegionHighlighted(null);
+    if(district == "Jajpur") district = "Jajapur";
+    if(district == "Jagatsinghpur") district = "Jagatsinghapur";
+    if(district == "Deogarh") district = "Debagarh";
+    if(district == "Balasore") district = "Baleshwar";
     setRegionHighlighted({district, state, index});
   };
 
