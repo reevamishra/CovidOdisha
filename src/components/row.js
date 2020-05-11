@@ -355,9 +355,10 @@ function Row(props) {
                       {sortedDistricts[district].delta.confirmed > 0 && (
                         <Icon.ArrowUp />
                       )}
-                      {t(sortedDistricts[district].delta.confirmed > 0
-                        ? `${sortedDistricts[district].delta.confirmed}`
-                        : '')}
+                      {sortedDistricts[district].delta.confirmed > 0
+                        ? sortedDistricts[district].delta.confirmed.toString().length == 2 ? `${t(sortedDistricts[district].delta.confirmed.toString()[0])+t(sortedDistricts[district].delta.confirmed.toString()[1])}`
+                                                                                    : `${t(sortedDistricts[district].delta.confirmed)}`
+                        : ''}
                     </span>
                     <span className="table__count-text">
                       {t(formatNumber(sortedDistricts[district].confirmed)[0])+t(formatNumber(sortedDistricts[district].confirmed)[1])
@@ -369,9 +370,10 @@ function Row(props) {
                       {sortedDistricts[district].delta.active > 0 && (
                         <Icon.ArrowUp />
                       )}
-                      {t(sortedDistricts[district].delta.active > 0
-                        ? `${sortedDistricts[district].delta.active}`
-                        : '')}
+                      {sortedDistricts[district].delta.active > 0
+                        ? sortedDistricts[district].delta.active.toString().length == 2 ? `${t(sortedDistricts[district].delta.active.toString()[0])+t(sortedDistricts[district].delta.active.toString()[1])}`
+                        : `${t(sortedDistricts[district].delta.active)}`
+                        : ''}
                     </span>
                     <span className="table__count-text">
                       {t(formatNumber(sortedDistricts[district].active)[0])+t(formatNumber(sortedDistricts[district].active)[1])
@@ -383,9 +385,10 @@ function Row(props) {
                       {sortedDistricts[district].delta.recovered > 0 && (
                         <Icon.ArrowUp />
                       )}
-                      {t(sortedDistricts[district].delta.recovered > 0
-                        ? `${sortedDistricts[district].delta.recovered}`
-                        : '')}
+                      {sortedDistricts[district].delta.recovered > 0
+                        ? sortedDistricts[district].delta.recovered.toString().length == 2 ? `${t(sortedDistricts[district].delta.recovered.toString()[0])+t(sortedDistricts[district].delta.recovered.toString()[1])}`
+                        : `${t(sortedDistricts[district].delta.recovered)}`
+                        : ''}
                     </span>
                     <span className="table__count-text">
                       {t(formatNumber(sortedDistricts[district].recovered)[0])+t(formatNumber(sortedDistricts[district].recovered)[1])
@@ -397,9 +400,10 @@ function Row(props) {
                       {sortedDistricts[district].delta.deaths > 0 && (
                         <Icon.ArrowUp />
                       )}
-                      {t(sortedDistricts[district].delta.deaths > 0
-                        ? `${sortedDistricts[district].delta.deaths}`
-                        : '')}
+                      {sortedDistricts[district].delta.deaths > 0
+                        ? sortedDistricts[district].delta.deaths.toString().length == 2 ? `${t(sortedDistricts[district].delta.deaths.toString()[0])+t(sortedDistricts[district].delta.deaths.toString()[1])}`
+                        : `${t(sortedDistricts[district].delta.deaths)}`
+                        : ''}
                     </span>
                     <span className="table__count-text">
                       {t(formatNumber(sortedDistricts[district].deceased)[0])+t(formatNumber(sortedDistricts[district].deceased)[1])
