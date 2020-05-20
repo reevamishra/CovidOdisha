@@ -121,12 +121,13 @@ function Row(props) {
         <td>
           <span className="deltas" style={{color: '#ff073a'}}>
             {state.deltaconfirmed > 0 && <Icon.ArrowUp />}
-            {state.deltaconfirmed > 0 ? `${t(state.deltaconfirmed[0])+t(state.deltaconfirmed[1])}` : ''}
+            {state.deltaconfirmed > 0 ? `${t(state.deltaconfirmed[0])+t(state.deltaconfirmed[1])+t(state.deltaconfirmed[2])+t(state.deltaconfirmed[3])}` : ''}
           </span>
           <span className="table__count-text">
             {parseInt(state.confirmed) === 0
               ? '-'
-              : t(formatNumber(state.confirmed)[0])+t(formatNumber(state.confirmed)[1])+t(formatNumber(state.confirmed)[2])}
+              : t(formatNumber(state.confirmed)[0])+t(formatNumber(state.confirmed)[1])+t(formatNumber(state.confirmed)[2])
+              +t(formatNumber(state.confirmed)[3])+t(formatNumber(state.confirmed)[4])+t(formatNumber(state.confirmed)[5])}
           </span>
         </td>
         <td
@@ -136,7 +137,8 @@ function Row(props) {
             {!state.delta.active==0 && <Icon.ArrowUp/>}
             {state.delta.active>0 ? `${state.delta.active}` : ''}
           </span>*/}
-          {parseInt(state.active) === 0 ? '-' : t(formatNumber(state.active)[0])+t(formatNumber(state.active)[1])+t(formatNumber(state.active)[2])}
+          {parseInt(state.active) === 0 ? '-' : t(formatNumber(state.active)[0])+t(formatNumber(state.active)[1])+t(formatNumber(state.active)[2])
+          +t(formatNumber(state.active)[3])+t(formatNumber(state.active)[4])+t(formatNumber(state.active)[5])}
         </td>
         <td
           style={{
@@ -145,12 +147,12 @@ function Row(props) {
         >
           <span className="deltas" style={{color: '#28a745'}}>
             {state.deltarecovered > 0 && <Icon.ArrowUp />}
-            {state.deltarecovered > 0 ? `${t(state.deltarecovered)}` : ''}
+            {state.deltarecovered > 0 ? `${t(state.deltarecovered.toString()[0])+t(state.deltarecovered.toString()[1])+t(state.deltarecovered.toString()[2])}` : ''}
           </span>
           <span className="table__count-text">
             {parseInt(state.recovered) === 0
               ? '-'
-              : t(formatNumber(state.recovered)[0])+t(formatNumber(state.recovered)[1])+t(formatNumber(state.recovered)[2])}
+              : t(formatNumber(state.recovered)[0])+t(formatNumber(state.recovered)[1])+t(formatNumber(state.recovered)[2])+t(formatNumber(state.recovered)[3])+t(formatNumber(state.recovered)[4])}
           </span>
         </td>
         <td

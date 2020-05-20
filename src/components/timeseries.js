@@ -389,7 +389,8 @@ function TimeSeries(props) {
             <h5 className={`${moving ? 'title' : ''}`}>{`${t(dateStr[0])+t(dateStr[1])+dateStr[2]+t(dateStr[3]+dateStr[4]+dateStr[5])}`}</h5>
             <div className="stats-bottom">
               <h2>{t(formatNumber(datapoint[chartKey1]).toString()[0])+t(formatNumber(datapoint[chartKey1]).toString()[1])
-              +t(formatNumber(datapoint[chartKey1]).toString()[2])+t(formatNumber(datapoint[chartKey1]).toString()[3])}</h2>
+              +t(formatNumber(datapoint[chartKey1]).toString()[2])+t(formatNumber(datapoint[chartKey1]).toString()[3])
+              +t(formatNumber(datapoint[chartKey1]).toString()[4])+t(formatNumber(datapoint[chartKey1]).toString()[5])}</h2>
               <h6>{t(currentStatusCount(chartKey1)[0])+t(currentStatusCount(chartKey1)[1])+t(currentStatusCount(chartKey1)[2])}</h6>
             </div>
           </div>
@@ -402,7 +403,8 @@ function TimeSeries(props) {
             <h5 className={`${moving ? 'title' : ''}`}>{`${t(dateStr[0])+t(dateStr[1])+dateStr[2]+t(dateStr[3]+dateStr[4]+dateStr[5])}`}</h5>
             <div className="stats-bottom">
               <h2>{t(formatNumber(datapoint[chartKey2]).toString()[0])+t(formatNumber(datapoint[chartKey2]).toString()[1])
-              +t(formatNumber(datapoint[chartKey2]).toString()[2])+t(formatNumber(datapoint[chartKey2]).toString()[3])}</h2>
+              +t(formatNumber(datapoint[chartKey2]).toString()[2])+t(formatNumber(datapoint[chartKey2]).toString()[3])
+              +t(formatNumber(datapoint[chartKey2]).toString()[4])+t(formatNumber(datapoint[chartKey2]).toString()[5])}</h2>
               <h6>{t(currentStatusCount(chartKey2)[0])+t(currentStatusCount(chartKey2)[1])+t(currentStatusCount(chartKey2)[2])}</h6>
             </div>
           </div>
@@ -415,7 +417,8 @@ function TimeSeries(props) {
             <h5 className={`${moving ? 'title' : ''}`}>{`${t(dateStr[0])+t(dateStr[1])+dateStr[2]+t(dateStr[3]+dateStr[4]+dateStr[5])}`}</h5>
             <div className="stats-bottom">
               <h2>{t(formatNumber(datapoint[chartKey3]).toString()[0])+t(formatNumber(datapoint[chartKey3]).toString()[1])
-              +t(formatNumber(datapoint[chartKey3]).toString()[2])+t(formatNumber(datapoint[chartKey3]).toString()[3])}</h2>
+              +t(formatNumber(datapoint[chartKey3]).toString()[2])+t(formatNumber(datapoint[chartKey3]).toString()[3])
+              +t(formatNumber(datapoint[chartKey3]).toString()[4])+t(formatNumber(datapoint[chartKey3]).toString()[5])}</h2>
               <h6>{t(currentStatusCount(chartKey3)[0])+t(currentStatusCount(chartKey3)[1])+t(currentStatusCount(chartKey3)[2])}</h6>
             </div>
           </div>

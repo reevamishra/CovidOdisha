@@ -60,7 +60,9 @@ function Level(props) {
             : ''}
           ]
         </h4> */}
-        <h1>{t(formatNumber(confirmed)[0])+t(formatNumber(confirmed)[1])+t(formatNumber(confirmed)[2])} </h1>
+        <h1>{t(formatNumber(confirmed)[0])+t(formatNumber(confirmed)[1])+t(formatNumber(confirmed)[2])
+        +t(formatNumber(confirmed)[3])+t(formatNumber(confirmed)[4])+t(formatNumber(confirmed)[5])
+        +t(formatNumber(confirmed)[6])+t(formatNumber(confirmed)[7])+t(formatNumber(confirmed)[8])} </h1>
       </div>
 
       <div
