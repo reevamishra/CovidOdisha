@@ -72,7 +72,9 @@ function Level(props) {
         <h5 className="heading">{t('Active')}</h5>
         {/* <h4>&nbsp;</h4> */}
         {/* <h4>[{props.deltas ? props.deltas.confirmeddelta-(props.deltas.recovereddelta+props.deltas.deceaseddelta) >=0 ? '+'+(props.deltas.confirmeddelta-(props.deltas.recovereddelta+props.deltas.deceaseddelta)).toString() : '+0' : ''}]</h4>*/}
-        <h1 className="title has-text-info">{t(formatNumber(active)[0])+t(formatNumber(active)[1])+t(formatNumber(active)[2])}</h1>
+        <h1 className="title has-text-info">{t(formatNumber(active)[0])+t(formatNumber(active)[1])+t(formatNumber(active)[2])
+        +t(formatNumber(active)[3])+t(formatNumber(active)[4])+t(formatNumber(active)[5])+t(formatNumber(active)[6])
+        +t(formatNumber(active)[7])+t(formatNumber(active)[8])+t(formatNumber(active)[9])}</h1>
       </div>
 
       <div
@@ -89,7 +91,9 @@ function Level(props) {
             : ''}
           ] */}
         {/* </h4> */}
-        <h1 className="title has-text-success">{t(formatNumber(recoveries)[0])+t(formatNumber(recoveries)[1])+t(formatNumber(recoveries)[2])} </h1>
+        <h1 className="title has-text-success">{t(formatNumber(recoveries)[0])+t(formatNumber(recoveries)[1])+t(formatNumber(recoveries)[2])
+        +t(formatNumber(recoveries)[3])+t(formatNumber(recoveries)[4])+t(formatNumber(recoveries)[5])+t(formatNumber(recoveries)[6])
+        +t(formatNumber(recoveries)[7])+t(formatNumber(recoveries)[8])+t(formatNumber(recoveries)[9])} </h1>
       </div>
 
       <div
@@ -106,7 +110,9 @@ function Level(props) {
             : ''}
           ]
         </h4> */}
-        <h1 className="title has-text-grey">{t(formatNumber(deaths)[0])+t(formatNumber(deaths)[1])+t(formatNumber(deaths)[2])}</h1>
+        <h1 className="title has-text-grey">{t(formatNumber(deaths)[0])+t(formatNumber(deaths)[1])+t(formatNumber(deaths)[2])
+        +t(formatNumber(deaths)[3])+t(formatNumber(deaths)[4])+t(formatNumber(deaths)[5])+t(formatNumber(deaths)[6])
+        +t(formatNumber(deaths)[7])+t(formatNumber(deaths)[8])+t(formatNumber(deaths)[9])}</h1>
       </div>
     </div>
   );
