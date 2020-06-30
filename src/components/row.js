@@ -152,7 +152,8 @@ function Row(props) {
           <span className="table__count-text">
             {parseInt(state.recovered) === 0
               ? '-'
-              : t(formatNumber(state.recovered)[0])+t(formatNumber(state.recovered)[1])+t(formatNumber(state.recovered)[2])+t(formatNumber(state.recovered)[3])+t(formatNumber(state.recovered)[4])}
+              : t(formatNumber(state.recovered)[0])+t(formatNumber(state.recovered)[1])+t(formatNumber(state.recovered)[2])+t(formatNumber(state.recovered)[3])
+              +t(formatNumber(state.recovered)[4])+t(formatNumber(state.recovered)[5])+t(formatNumber(state.recovered)[6])}
           </span>
         </td>
         <td
@@ -364,7 +365,8 @@ function Row(props) {
                     </span>
                     <span className="table__count-text">
                       {t(formatNumber(sortedDistricts[district].confirmed)[0])+t(formatNumber(sortedDistricts[district].confirmed)[1])
-                      +t(formatNumber(sortedDistricts[district].confirmed)[2])+t(formatNumber(sortedDistricts[district].confirmed)[3])}
+                      +t(formatNumber(sortedDistricts[district].confirmed)[2])+t(formatNumber(sortedDistricts[district].confirmed)[3])
+                      +t(formatNumber(sortedDistricts[district].confirmed)[4])+t(formatNumber(sortedDistricts[district].confirmed)[5])}
                     </span>
                   </td>
                   <td>
@@ -379,7 +381,8 @@ function Row(props) {
                     </span>
                     <span className="table__count-text">
                       {t(formatNumber(sortedDistricts[district].active)[0])+t(formatNumber(sortedDistricts[district].active)[1])
-                      +t(formatNumber(sortedDistricts[district].active)[2])+t(formatNumber(sortedDistricts[district].active)[3])}
+                      +t(formatNumber(sortedDistricts[district].active)[2])+t(formatNumber(sortedDistricts[district].active)[3])
+                      +t(formatNumber(sortedDistricts[district].active)[4])+t(formatNumber(sortedDistricts[district].active)[5])}
                     </span>
                   </td>
                   <td>
@@ -394,7 +397,8 @@ function Row(props) {
                     </span>
                     <span className="table__count-text">
                       {t(formatNumber(sortedDistricts[district].recovered)[0])+t(formatNumber(sortedDistricts[district].recovered)[1])
-                      +t(formatNumber(sortedDistricts[district].recovered)[2])+t(formatNumber(sortedDistricts[district].recovered)[3])}
+                      +t(formatNumber(sortedDistricts[district].recovered)[2])+t(formatNumber(sortedDistricts[district].recovered)[3])
+                      +t(formatNumber(sortedDistricts[district].recovered)[4])+t(formatNumber(sortedDistricts[district].recovered)[5])}
                     </span>
                   </td>
                   <td>
@@ -409,7 +413,8 @@ function Row(props) {
                     </span>
                     <span className="table__count-text">
                       {t(formatNumber(sortedDistricts[district].deceased)[0])+t(formatNumber(sortedDistricts[district].deceased)[1])
-                      +t(formatNumber(sortedDistricts[district].deceased)[2])+t(formatNumber(sortedDistricts[district].deceased)[3])}
+                      +t(formatNumber(sortedDistricts[district].deceased)[2])+t(formatNumber(sortedDistricts[district].deceased)[3])
+                      +t(formatNumber(sortedDistricts[district].deceased)[4])+t(formatNumber(sortedDistricts[district].deceased)[5])}
                     </span>
                   </td>
                 </tr>
