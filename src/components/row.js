@@ -127,7 +127,8 @@ function Row(props) {
             {parseInt(state.confirmed) === 0
               ? '-'
               : t(formatNumber(state.confirmed)[0])+t(formatNumber(state.confirmed)[1])+t(formatNumber(state.confirmed)[2])
-              +t(formatNumber(state.confirmed)[3])+t(formatNumber(state.confirmed)[4])+t(formatNumber(state.confirmed)[5])}
+              +t(formatNumber(state.confirmed)[3])+t(formatNumber(state.confirmed)[4])+t(formatNumber(state.confirmed)[5])
+              +t(formatNumber(state.confirmed)[6])+t(formatNumber(state.confirmed)[7])+t(formatNumber(state.confirmed)[8])}
           </span>
         </td>
         <td
@@ -138,7 +139,8 @@ function Row(props) {
             {state.delta.active>0 ? `${state.delta.active}` : ''}
           </span>*/}
           {parseInt(state.active) === 0 ? '-' : t(formatNumber(state.active)[0])+t(formatNumber(state.active)[1])+t(formatNumber(state.active)[2])
-          +t(formatNumber(state.active)[3])+t(formatNumber(state.active)[4])+t(formatNumber(state.active)[5])}
+          +t(formatNumber(state.active)[3])+t(formatNumber(state.active)[4])+t(formatNumber(state.active)[5])
+           +t(formatNumber(state.active)[6])+t(formatNumber(state.active)[7])+t(formatNumber(state.active)[8])}
         </td>
         <td
           style={{
