@@ -429,7 +429,9 @@ function MapExplorer({
         <div className="stats fadeInUp" style={{animationDelay: '2s'}}>
           <h5>{t(window.innerWidth <= 769 ? 'Cnfmd' : 'Confirmed')}</h5>
           <div className="stats-bottom">
-            <h1>{t(formatNumber(panelRegion.confirmed)[0])+t(formatNumber(panelRegion.confirmed)[1])+t(formatNumber(panelRegion.confirmed)[2])+t(formatNumber(panelRegion.confirmed)[3])+t(formatNumber(panelRegion.confirmed)[4])+t(formatNumber(panelRegion.confirmed)[5])}</h1>
+            <h1>{t(formatNumber(panelRegion.confirmed)[0])+t(formatNumber(panelRegion.confirmed)[1])+t(formatNumber(panelRegion.confirmed)[2])+t(formatNumber(panelRegion.confirmed)[3])+t(formatNumber(panelRegion.confirmed)[4])+t(formatNumber(panelRegion.confirmed)[5])
+              +t(formatNumber(panelRegion.confirmed)[6])+t(formatNumber(panelRegion.confirmed)[7])+t(formatNumber(panelRegion.confirmed)[8])
+            +t(formatNumber(panelRegion.confirmed)[9])+t(formatNumber(panelRegion.confirmed)[10])+t(formatNumber(panelRegion.confirmed)[11])}</h1>
             <h6>{}</h6>
           </div>
         </div>
